@@ -10,9 +10,9 @@ import Foundation
 class SendData {
     func fetchImg(completion: @escaping ([NewImg]?) -> Void) {
         let urlString = "https://api.unsplash.com/photos/?per_page=5&order_by=latest&client_id=J28noNyOy-HJj56bxWfO8dmlhDJZ_LXb2W6b8v5j0XE"
-
         guard let url = URL(string: urlString) else {
             completion(nil)
+            
             return
         }
 
@@ -30,8 +30,7 @@ class SendData {
             do {
                 let decoder = JSONDecoder()
                 let response = try decoder.decode([NewImg].self, from: data)
-                completion(response)
-                print(response)
+                completion(response) // データの取得後にcompletionを呼び出す
             } catch let error {
                 print("JSONデコードエラー: \(error)")
                 completion(nil)

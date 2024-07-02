@@ -19,6 +19,7 @@ class CollectionTopViewController: UIViewController, UICollectionViewDelegate, U
         super.viewDidLoad()
         collectionImg.delegate = self // delegateを設定する
         collectionImg.dataSource = self // dataSourceを設定する
+        imgNewList()
     }
     
     
@@ -35,18 +36,7 @@ class CollectionTopViewController: UIViewController, UICollectionViewDelegate, U
         }
     }
     
-//    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-//        let item = imgList[indexPath.item] // セルのデータを取得する
-//           var size = CGSize.zero
-//
-//        if Double(item.width) / Double(item.height) == 1.0  {
-//               size = CGSize(width: 44, height: 44) // 正方形の場合のサイズ
-//           } else {
-//               size = CGSize(width: 44, height: 88) // 長方形の場合のサイズ
-//           }
-//
-//           return size
-//       }
+
    
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -70,4 +60,22 @@ class CollectionTopViewController: UIViewController, UICollectionViewDelegate, U
         }
         return UICollectionViewCell()
     }
+}
+
+extension CollectionTopViewController: UICollectionViewDelegateFlowLayout {
+    private func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        let screenWidth = UIScreen.main.bounds.width
+        let cellWidth: CGFloat = screenWidth / 2
+        let cellHeight = cellWidth
+        return CGSize(width: cellWidth, height: cellHeight)
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+        
+    }
+
 }
