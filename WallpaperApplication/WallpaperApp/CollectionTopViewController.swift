@@ -11,14 +11,18 @@ class CollectionTopViewController: UIViewController, UICollectionViewDelegate, U
     let sendData = SendData()
     var imgList: [NewImg] = [] // 画像リストを配列として保持する
 
+    
+    
     @IBOutlet weak var collectionImg: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        imgNewList()
         collectionImg.delegate = self // delegateを設定する
         collectionImg.dataSource = self // dataSourceを設定する
     }
+    
+    
+
     
     func imgNewList(){
         sendData.fetchImg { result in
@@ -30,6 +34,20 @@ class CollectionTopViewController: UIViewController, UICollectionViewDelegate, U
             }
         }
     }
+    
+//    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+//        let item = imgList[indexPath.item] // セルのデータを取得する
+//           var size = CGSize.zero
+//
+//        if Double(item.width) / Double(item.height) == 1.0  {
+//               size = CGSize(width: 44, height: 44) // 正方形の場合のサイズ
+//           } else {
+//               size = CGSize(width: 44, height: 88) // 長方形の場合のサイズ
+//           }
+//
+//           return size
+//       }
+   
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return imgList.count // 画像リストの要素数を返す
