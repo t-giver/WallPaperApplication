@@ -63,19 +63,23 @@ class CollectionTopViewController: UIViewController, UICollectionViewDelegate, U
 }
 
 extension CollectionTopViewController: UICollectionViewDelegateFlowLayout {
-    private func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        let screenWidth = UIScreen.main.bounds.width
-        let cellWidth: CGFloat = screenWidth / 2
-        let cellHeight = cellWidth
-        return CGSize(width: cellWidth, height: cellHeight)
-    }
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
-    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if indexPath.item == 0 {
+                let collectionViewWidth = collectionView.bounds.width
+                let itemWidth = collectionViewWidth
+                return CGSize(width: itemWidth, height: itemWidth)
+            } else {
+                let collectionViewWidth = collectionView.bounds.width
+                let itemWidth = collectionViewWidth / 2
+                return CGSize(width: itemWidth, height: itemWidth)
+            }
+        }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 0
-        
     }
 
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
 }
