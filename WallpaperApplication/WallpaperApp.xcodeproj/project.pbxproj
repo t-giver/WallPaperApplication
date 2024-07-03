@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		B3309FD72C323989009A02BB /* FooterTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3309FD62C323989009A02BB /* FooterTabView.swift */; };
+		B33195702C35028A00075345 /* SectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = B331956F2C35028A00075345 /* SectionHeader.xib */; };
+		B33195722C3504C200075345 /* SectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33195712C3504C200075345 /* SectionHeader.swift */; };
+		B35B02D82C33E2F200C217E5 /* ShowPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35B02D72C33E2F200C217E5 /* ShowPageViewController.swift */; };
 		B36A957B2C2E96F700EF9C09 /* FooterTabView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B36A957A2C2E96F700EF9C09 /* FooterTabView.xib */; };
 		B37D5CA92C2E6C1800F179BF /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37D5CA82C2E6C1800F179BF /* CollectionViewCell.swift */; };
 		B3AA60F12C2E4BDA00CF208B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3AA60F02C2E4BDA00CF208B /* AppDelegate.swift */; };
@@ -23,6 +26,9 @@
 
 /* Begin PBXFileReference section */
 		B3309FD62C323989009A02BB /* FooterTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterTabView.swift; sourceTree = "<group>"; };
+		B331956F2C35028A00075345 /* SectionHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionHeader.xib; sourceTree = "<group>"; };
+		B33195712C3504C200075345 /* SectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeader.swift; sourceTree = "<group>"; };
+		B35B02D72C33E2F200C217E5 /* ShowPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowPageViewController.swift; sourceTree = "<group>"; };
 		B36A957A2C2E96F700EF9C09 /* FooterTabView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FooterTabView.xib; sourceTree = "<group>"; };
 		B37D5CA82C2E6C1800F179BF /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		B3AA60ED2C2E4BDA00CF208B /* WallpaperApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WallpaperApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -76,7 +82,10 @@
 				B3AA61042C2E4D4B00CF208B /* CollectionTopViewController.swift */,
 				B37D5CA82C2E6C1800F179BF /* CollectionViewCell.swift */,
 				B3309FD62C323989009A02BB /* FooterTabView.swift */,
+				B33195712C3504C200075345 /* SectionHeader.swift */,
+				B35B02D72C33E2F200C217E5 /* ShowPageViewController.swift */,
 				B3AA60F62C2E4BDA00CF208B /* Main.storyboard */,
+				B331956F2C35028A00075345 /* SectionHeader.xib */,
 				B36A957A2C2E96F700EF9C09 /* FooterTabView.xib */,
 				B3AA60FB2C2E4BDC00CF208B /* LaunchScreen.storyboard */,
 				B3AA60F92C2E4BDC00CF208B /* Assets.xcassets */,
@@ -146,6 +155,7 @@
 				B3AA60FD2C2E4BDC00CF208B /* LaunchScreen.storyboard in Resources */,
 				B3AA60FA2C2E4BDC00CF208B /* Assets.xcassets in Resources */,
 				B3AA60F82C2E4BDA00CF208B /* Main.storyboard in Resources */,
+				B33195702C35028A00075345 /* SectionHeader.xib in Resources */,
 				B36A957B2C2E96F700EF9C09 /* FooterTabView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -159,11 +169,13 @@
 			files = (
 				B3AA61092C2E55CB00CF208B /* struct.swift in Sources */,
 				B3AA61072C2E543800CF208B /* File.swift in Sources */,
+				B33195722C3504C200075345 /* SectionHeader.swift in Sources */,
 				B3AA60F52C2E4BDA00CF208B /* ViewController.swift in Sources */,
 				B37D5CA92C2E6C1800F179BF /* CollectionViewCell.swift in Sources */,
 				B3AA60F12C2E4BDA00CF208B /* AppDelegate.swift in Sources */,
 				B3AA61052C2E4D4B00CF208B /* CollectionTopViewController.swift in Sources */,
 				B3AA60F32C2E4BDA00CF208B /* SceneDelegate.swift in Sources */,
+				B35B02D82C33E2F200C217E5 /* ShowPageViewController.swift in Sources */,
 				B3309FD72C323989009A02BB /* FooterTabView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

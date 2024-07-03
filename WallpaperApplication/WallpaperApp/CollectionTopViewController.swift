@@ -14,12 +14,17 @@ class CollectionTopViewController: UIViewController, UICollectionViewDelegate, U
     
     
     @IBOutlet weak var collectionImg: UICollectionView!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionImg.delegate = self // delegateを設定する
         collectionImg.dataSource = self // dataSourceを設定する
         imgNewList()
+        collectionImg.register(
+        UINib(nibName: "SectionHeader", bundle: nil),
+        forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+        withReuseIdentifier: "SectionHeader")
     }
     
     
@@ -59,26 +64,53 @@ class CollectionTopViewController: UIViewController, UICollectionViewDelegate, U
             return cell
         }
         return UICollectionViewCell()
+        }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "topShow",
+           let showVC = segue.destination as? ShowPageViewController,
+           let indexPath =  collectionImg.indexPathsForSelectedItems?.first {
+            showVC.selectImg = imgList
+            showVC.indent = indexPath.item
+        }
     }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+
+      // 1. ヘッダーセクションを作成
+      guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "SectionHeaderMain", for: indexPath) as? SectionHeader else {
+        fatalError("ヘッダーがありません")
+      }
+
+     // 2. ヘッダーセクションのラベルにテキストをセット
+     if kind == UICollectionView.elementKindSectionHeader {
+       header.titleLabel.text = "セクションヘッダー"
+       return header
+    }
+
+     return UICollectionReusableView()
+    }
+    
+    
 }
 
 extension CollectionTopViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if indexPath.item == 0 {
-                let collectionViewWidth = collectionView.bounds.width
-                let itemWidth = collectionViewWidth
-                return CGSize(width: itemWidth, height: itemWidth)
-            } else {
-                let collectionViewWidth = collectionView.bounds.width
-                let itemWidth = collectionViewWidth / 2
-                return CGSize(width: itemWidth, height: itemWidth)
-            }
+            let collectionViewWidth = collectionView.bounds.width
+            let itemWidth = collectionViewWidth
+            return CGSize(width: itemWidth, height: itemWidth)
+        } else {
+            let collectionViewWidth = collectionView.bounds.width
+            let itemWidth = collectionViewWidth / 2
+            return CGSize(width: itemWidth, height: itemWidth)
         }
-
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }

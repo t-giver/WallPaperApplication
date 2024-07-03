@@ -8,6 +8,7 @@
 import Foundation
 
 struct NewImg: Codable {
+    let updated_at:String?
     let id: String
     let slug: String
 //    let alternativeText: [String: String]
@@ -24,14 +25,15 @@ struct NewImg: Codable {
     let user: User
     let urls: UrlsSize
     let links: Links
+    let location: String?
 }
 
 
 
 struct User: Codable {
-    let id: String
-    let username: String
-    let name: String
+    let id: String?
+    let username: String?
+    let name: String?
 //    let firstName: String
 //    let lastName: String
 //    let profileImage: ProfileImage
@@ -40,13 +42,14 @@ struct User: Codable {
 
 struct UrlsSize: Codable {
     let full: String
-    let regular: String
+    let regular: URL?
+    
 }
 
 struct Links: Codable {
     let `self`: String
     let html: String
-    let download: String
+    let download: String?
 //    let downloadLocation: String
 }
 
