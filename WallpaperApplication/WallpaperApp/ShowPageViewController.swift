@@ -19,7 +19,7 @@ class ShowPageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        guard let img = selectImg.first, let url = img.urls.regular, let author = img.user.name, let source = img.links.download, let upDate = img.updated_at else {
+        guard let img = selectImg.first, let url = img.urls.regular, let author = img.user.name, let upDate = img.updated_at else {
             return
         }
         
@@ -28,8 +28,7 @@ class ShowPageViewController: UIViewController {
                 DispatchQueue.main.async {
                     self.showImg.image = image
                     self.authorLabel.text = author
-                    
-                    // 1. upDateLabel への表示
+                    //  upDateLabel への表示
                     let dateFormatter = DateFormatter()
                     dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
                     dateFormatter.locale = Locale(identifier: "ja_JP")
@@ -38,9 +37,10 @@ class ShowPageViewController: UIViewController {
                         dateFormatter.dateFormat = "yyyy年M月d日"
                         self.upDateLabel.text = dateFormatter.string(from: date)
                     }
-                    if let url = URL(string: source), let host = url.host {
-                        let displayName = host.components(separatedBy: ".").first ?? host
-                        self.sourceLabel.text = displayName
+                    if let location = img.location {
+                        self.sourceLabel.text = location
+                    } else {
+                        self.sourceLabel.text = nil
                     }
                 }
             }

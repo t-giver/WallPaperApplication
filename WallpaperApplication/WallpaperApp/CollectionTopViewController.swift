@@ -84,7 +84,7 @@ class CollectionTopViewController: UIViewController, UICollectionViewDelegate, U
 
      // 2. ヘッダーセクションのラベルにテキストをセット
      if kind == UICollectionView.elementKindSectionHeader {
-       header.titleLabel.text = "セクションヘッダー"
+       header.titleLabel.text = "新着写真"
        return header
     }
 
