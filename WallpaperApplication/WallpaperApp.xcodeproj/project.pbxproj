@@ -80,6 +80,8 @@
 				B35B02D72C33E2F200C217E5 /* ShowPageViewController.swift */,
 				B38884622C3534860090EDF9 /* ExpansionViewController.swift */,
 				B37D5CA82C2E6C1800F179BF /* CollectionViewCell.swift */,
+				B357DF922C365805007AF456 /* TagViewController.swift */,
+				B357DF942C365818007AF456 /* InfoViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -108,8 +110,6 @@
 				B357DF902C363E19007AF456 /* Model */,
 				B357DF912C363E56007AF456 /* Controller */,
 				B3AA60F62C2E4BDA00CF208B /* Main.storyboard */,
-				B357DF942C365818007AF456 /* InfoViewController.swift */,
-				B357DF922C365805007AF456 /* TagViewController.swift */,
 				B331956F2C35028A00075345 /* SectionHeader.xib */,
 				B36A957A2C2E96F700EF9C09 /* FooterTabView.xib */,
 				B3AA60FB2C2E4BDC00CF208B /* LaunchScreen.storyboard */,

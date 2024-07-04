@@ -49,9 +49,8 @@
                                                         </label>
                                                     </subviews>
                                                 </stackView>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wSj-Q8-GYb">
-                                                    <rect key="frame" x="0.0" y="20" width="131" height="7"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wSj-Q8-GYb">
+                                                    <rect key="frame" x="0.0" y="0.0" width="131" height="48"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain"/>
                                                     <connections>
@@ -62,8 +61,12 @@
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
                                                 <constraint firstItem="Cgq-QP-eEe" firstAttribute="top" secondItem="em4-Do-oDV" secondAttribute="top" id="FFt-xo-am8"/>
+                                                <constraint firstItem="wSj-Q8-GYb" firstAttribute="leading" secondItem="em4-Do-oDV" secondAttribute="leading" id="L1G-2K-JnS"/>
                                                 <constraint firstItem="Cgq-QP-eEe" firstAttribute="leading" secondItem="em4-Do-oDV" secondAttribute="leading" id="Tuu-8V-8wI"/>
+                                                <constraint firstAttribute="trailing" secondItem="wSj-Q8-GYb" secondAttribute="trailing" id="h8X-jr-PhI"/>
+                                                <constraint firstAttribute="bottom" secondItem="wSj-Q8-GYb" secondAttribute="bottom" id="hy3-oW-lTu"/>
                                                 <constraint firstAttribute="bottom" secondItem="Cgq-QP-eEe" secondAttribute="bottom" id="loC-Eb-sa0"/>
+                                                <constraint firstItem="wSj-Q8-GYb" firstAttribute="top" secondItem="em4-Do-oDV" secondAttribute="top" id="qPg-Ot-TO1"/>
                                                 <constraint firstAttribute="trailing" secondItem="Cgq-QP-eEe" secondAttribute="trailing" id="uze-wc-zue"/>
                                             </constraints>
                                         </view>
