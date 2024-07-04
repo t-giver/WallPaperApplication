@@ -10,6 +10,8 @@
 		B3309FD72C323989009A02BB /* FooterTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3309FD62C323989009A02BB /* FooterTabView.swift */; };
 		B33195702C35028A00075345 /* SectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = B331956F2C35028A00075345 /* SectionHeader.xib */; };
 		B33195722C3504C200075345 /* SectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33195712C3504C200075345 /* SectionHeader.swift */; };
+		B357DF932C365805007AF456 /* TagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B357DF922C365805007AF456 /* TagViewController.swift */; };
+		B357DF952C365818007AF456 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B357DF942C365818007AF456 /* InfoViewController.swift */; };
 		B35B02D82C33E2F200C217E5 /* ShowPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35B02D72C33E2F200C217E5 /* ShowPageViewController.swift */; };
 		B36A957B2C2E96F700EF9C09 /* FooterTabView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B36A957A2C2E96F700EF9C09 /* FooterTabView.xib */; };
 		B37D5CA92C2E6C1800F179BF /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37D5CA82C2E6C1800F179BF /* CollectionViewCell.swift */; };
@@ -29,6 +31,8 @@
 		B3309FD62C323989009A02BB /* FooterTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterTabView.swift; sourceTree = "<group>"; };
 		B331956F2C35028A00075345 /* SectionHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionHeader.xib; sourceTree = "<group>"; };
 		B33195712C3504C200075345 /* SectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeader.swift; sourceTree = "<group>"; };
+		B357DF922C365805007AF456 /* TagViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagViewController.swift; sourceTree = "<group>"; };
+		B357DF942C365818007AF456 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		B35B02D72C33E2F200C217E5 /* ShowPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowPageViewController.swift; sourceTree = "<group>"; };
 		B36A957A2C2E96F700EF9C09 /* FooterTabView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FooterTabView.xib; sourceTree = "<group>"; };
 		B37D5CA82C2E6C1800F179BF /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
@@ -57,6 +61,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B357DF902C363E19007AF456 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B3309FD62C323989009A02BB /* FooterTabView.swift */,
+				B33195712C3504C200075345 /* SectionHeader.swift */,
+				B3AA61062C2E543800CF208B /* File.swift */,
+				B3AA61082C2E55CB00CF208B /* struct.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B357DF912C363E56007AF456 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B3AA60F42C2E4BDA00CF208B /* ViewController.swift */,
+				B3AA61042C2E4D4B00CF208B /* CollectionTopViewController.swift */,
+				B35B02D72C33E2F200C217E5 /* ShowPageViewController.swift */,
+				B38884622C3534860090EDF9 /* ExpansionViewController.swift */,
+				B37D5CA82C2E6C1800F179BF /* CollectionViewCell.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		B3AA60E42C2E4BDA00CF208B = {
 			isa = PBXGroup;
 			children = (
@@ -78,16 +105,11 @@
 			children = (
 				B3AA60F02C2E4BDA00CF208B /* AppDelegate.swift */,
 				B3AA60F22C2E4BDA00CF208B /* SceneDelegate.swift */,
-				B3AA60F42C2E4BDA00CF208B /* ViewController.swift */,
-				B3AA61062C2E543800CF208B /* File.swift */,
-				B3AA61082C2E55CB00CF208B /* struct.swift */,
-				B3AA61042C2E4D4B00CF208B /* CollectionTopViewController.swift */,
-				B37D5CA82C2E6C1800F179BF /* CollectionViewCell.swift */,
-				B3309FD62C323989009A02BB /* FooterTabView.swift */,
-				B33195712C3504C200075345 /* SectionHeader.swift */,
-				B35B02D72C33E2F200C217E5 /* ShowPageViewController.swift */,
-				B38884622C3534860090EDF9 /* ExpansionViewController.swift */,
+				B357DF902C363E19007AF456 /* Model */,
+				B357DF912C363E56007AF456 /* Controller */,
 				B3AA60F62C2E4BDA00CF208B /* Main.storyboard */,
+				B357DF942C365818007AF456 /* InfoViewController.swift */,
+				B357DF922C365805007AF456 /* TagViewController.swift */,
 				B331956F2C35028A00075345 /* SectionHeader.xib */,
 				B36A957A2C2E96F700EF9C09 /* FooterTabView.xib */,
 				B3AA60FB2C2E4BDC00CF208B /* LaunchScreen.storyboard */,
@@ -179,6 +201,8 @@
 				B3AA61052C2E4D4B00CF208B /* CollectionTopViewController.swift in Sources */,
 				B3AA60F32C2E4BDA00CF208B /* SceneDelegate.swift in Sources */,
 				B35B02D82C33E2F200C217E5 /* ShowPageViewController.swift in Sources */,
+				B357DF952C365818007AF456 /* InfoViewController.swift in Sources */,
+				B357DF932C365805007AF456 /* TagViewController.swift in Sources */,
 				B38884632C3534860090EDF9 /* ExpansionViewController.swift in Sources */,
 				B3309FD72C323989009A02BB /* FooterTabView.swift in Sources */,
 			);

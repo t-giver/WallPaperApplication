@@ -92,6 +92,9 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="131" height="48"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain"/>
+                                                    <connections>
+                                                        <action selector="didTapTag:" destination="-1" eventType="touchUpInside" id="QSZ-Fm-wNW"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -131,6 +134,9 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="131" height="48"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain"/>
+                                                    <connections>
+                                                        <action selector="didTapInfo:" destination="-1" eventType="touchUpInside" id="B3B-cf-Bhi"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>

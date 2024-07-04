@@ -9,6 +9,8 @@ import UIKit
 
 enum FooterTab{
     case home
+    case tag
+    case info
 }
 
 protocol FooterTabViewDelegate: AnyObject{
@@ -27,6 +29,14 @@ class FooterTabView: UIView {
         delegate?.footerTabView(self, didselectTab: .home)
     }
     
+    @IBAction func didTapTag(_ sender: Any) {
+        delegate?.footerTabView(self, didselectTab: .tag)
+    }
+    
+    @IBAction func didTapInfo(_ sender: Any) {
+        delegate?.footerTabView(self, didselectTab: .info)
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         load()
@@ -41,7 +51,6 @@ class FooterTabView: UIView {
     
     
     //影を背景につけて丸みをつけるコード
-    func setup(){
         func setup(){
             shadowView.layer.shadowColor = UIColor.systemGray.cgColor
             shadowView.layer.shadowOffset = CGSize(width: 0, height: 2)
@@ -52,7 +61,7 @@ class FooterTabView: UIView {
             shadowView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
         }
 
-    }
+    
     
     
     func load(){

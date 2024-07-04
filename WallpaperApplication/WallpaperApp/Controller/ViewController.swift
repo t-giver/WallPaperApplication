@@ -9,7 +9,7 @@ import UIKit
 
 class ViewController: UIViewController, FooterTabViewDelegate {
  
-    
+
 
     @IBOutlet weak var footerTabView: FooterTabView!
     {
@@ -22,11 +22,11 @@ class ViewController: UIViewController, FooterTabViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        switchViewController(selectedTab: .home)
+        switchViewController(selectTab: .home)
     }
     
     func footerTabView(_ footerTabView: FooterTabView, didselectTab: FooterTab) {
-        
+        switchViewController(selectTab: didselectTab)
     }
     
     private lazy var homeViewController: CollectionTopViewController = {
@@ -35,15 +35,39 @@ class ViewController: UIViewController, FooterTabViewDelegate {
         add(childViewController: viewController)
         return viewController
     }()
+    
+    private lazy var tagViewController: TagViewController = {
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        var viewController = storyboard.instantiateViewController(withIdentifier: "TagViewController") as! TagViewController
+        add(childViewController: viewController)
+        return viewController
+    }()
+
+    private lazy var infoViewController: InfoViewController = {
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        var viewController = storyboard.instantiateViewController(withIdentifier: "InfoViewController") as! InfoViewController
+        add(childViewController: viewController)
+        return viewController
+    }()
 
 
     
-    private func switchViewController(selectedTab:FooterTab) {
-        switch selectedTab {
+    private func switchViewController(selectTab:FooterTab) {
+        switch selectTab {
         case.home:
             add(childViewController: homeViewController)
+            remove(childViewController: tagViewController)
+                remove(childViewController: infoViewController)
+            case .tag:
+                add(childViewController: tagViewController)
+                remove(childViewController: homeViewController)
+                remove(childViewController: infoViewController)
+            case .info:
+                add(childViewController: infoViewController)
+                remove(childViewController: homeViewController)
+                remove(childViewController: tagViewController)
         }
-        self.selectedTab = selectedTab
+        self.selectedTab = selectTab
         view.bringSubviewToFront(footerTabView)
     }
     
