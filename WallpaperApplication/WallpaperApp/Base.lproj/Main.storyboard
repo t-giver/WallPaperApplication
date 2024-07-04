@@ -279,27 +279,28 @@
                         <outlet property="showImg" destination="ign-sL-LOD" id="Qu2-by-41R"/>
                         <outlet property="sourceLabel" destination="sq4-dD-qgy" id="uE3-25-cLQ"/>
                         <outlet property="upDateLabel" destination="Jjk-qr-j6b" id="z4k-sa-FJ4"/>
+                        <segue destination="Rqy-GH-26B" kind="show" identifier="expansion" id="JZz-fj-Xoe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VbR-01-ZeT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1648" y="-865"/>
         </scene>
-        <!--View Controller-->
+        <!--Expansion View Controller-->
         <scene sceneID="GeV-6s-dCF">
             <objects>
-                <viewController id="Rqy-GH-26B" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="Rqy-GH-26B" customClass="ExpansionViewController" customModule="WallpaperApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jOG-qR-Ayq">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w6o-ds-rLo">
-                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uc1-24-ma4">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="2000"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tiA-DC-LAB">
+                                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tiA-DC-LAB">
                                                 <rect key="frame" x="76" y="247" width="240" height="128"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
@@ -330,11 +331,15 @@
                             <constraint firstItem="w6o-ds-rLo" firstAttribute="leading" secondItem="glV-fc-hhT" secondAttribute="leading" id="vQc-5b-mLm"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="TdZ-Sd-uLN"/>
                     <size key="freeformSize" width="393" height="852"/>
+                    <connections>
+                        <outlet property="tapimg" destination="tiA-DC-LAB" id="W1v-eJ-096"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N7B-gA-UQC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3138" y="-888"/>
+            <point key="canvasLocation" x="2782" y="-865"/>
         </scene>
     </scenes>
     <resources>

@@ -66,14 +66,7 @@ class CollectionTopViewController: UIViewController, UICollectionViewDelegate, U
         return UICollectionViewCell()
         }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "topShow",
-           let showVC = segue.destination as? ShowPageViewController,
-           let indexPath =  collectionImg.indexPathsForSelectedItems?.first {
-            showVC.selectImg = imgList
-            showVC.indent = indexPath.item
-        }
-    }
+    
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
 
@@ -89,6 +82,15 @@ class CollectionTopViewController: UIViewController, UICollectionViewDelegate, U
     }
 
      return UICollectionReusableView()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "topShow",
+           let showVC = segue.destination as? ShowPageViewController,
+           let indexPath =  collectionImg.indexPathsForSelectedItems?.first {
+            showVC.selectImg = imgList
+            showVC.indent = indexPath.item
+        }
     }
     
     

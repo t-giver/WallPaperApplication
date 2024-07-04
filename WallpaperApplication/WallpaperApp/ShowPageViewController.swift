@@ -23,6 +23,8 @@ class ShowPageViewController: UIViewController {
             return
         }
         
+        
+        
         DispatchQueue.global().async {
             if let data = try? Data(contentsOf: url), let image = UIImage(data: data) {
                 DispatchQueue.main.async {
@@ -44,6 +46,25 @@ class ShowPageViewController: UIViewController {
                     }
                 }
             }
+        }
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(showImageTapped(_:)))
+         showImg.addGestureRecognizer(tapGesture)
+         showImg.isUserInteractionEnabled = true
+     
+    }
+    
+    @objc func showImageTapped(_ gesture: UITapGestureRecognizer) {
+        performSegue(withIdentifier: "expansion", sender: showImg)
+    }
+
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "expansion",
+           let expansionVC = segue.destination as? ExpansionViewController,
+           let tappedImageView = sender as? UIImageView {
+            expansionVC.tapImge = selectImg
+            expansionVC.tappedImageView = tappedImageView
         }
     }
 }

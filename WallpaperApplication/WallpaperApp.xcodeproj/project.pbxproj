@@ -13,6 +13,7 @@
 		B35B02D82C33E2F200C217E5 /* ShowPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35B02D72C33E2F200C217E5 /* ShowPageViewController.swift */; };
 		B36A957B2C2E96F700EF9C09 /* FooterTabView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B36A957A2C2E96F700EF9C09 /* FooterTabView.xib */; };
 		B37D5CA92C2E6C1800F179BF /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37D5CA82C2E6C1800F179BF /* CollectionViewCell.swift */; };
+		B38884632C3534860090EDF9 /* ExpansionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38884622C3534860090EDF9 /* ExpansionViewController.swift */; };
 		B3AA60F12C2E4BDA00CF208B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3AA60F02C2E4BDA00CF208B /* AppDelegate.swift */; };
 		B3AA60F32C2E4BDA00CF208B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3AA60F22C2E4BDA00CF208B /* SceneDelegate.swift */; };
 		B3AA60F52C2E4BDA00CF208B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3AA60F42C2E4BDA00CF208B /* ViewController.swift */; };
@@ -31,6 +32,7 @@
 		B35B02D72C33E2F200C217E5 /* ShowPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowPageViewController.swift; sourceTree = "<group>"; };
 		B36A957A2C2E96F700EF9C09 /* FooterTabView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FooterTabView.xib; sourceTree = "<group>"; };
 		B37D5CA82C2E6C1800F179BF /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		B38884622C3534860090EDF9 /* ExpansionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpansionViewController.swift; sourceTree = "<group>"; };
 		B3AA60ED2C2E4BDA00CF208B /* WallpaperApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WallpaperApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3AA60F02C2E4BDA00CF208B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B3AA60F22C2E4BDA00CF208B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 				B3309FD62C323989009A02BB /* FooterTabView.swift */,
 				B33195712C3504C200075345 /* SectionHeader.swift */,
 				B35B02D72C33E2F200C217E5 /* ShowPageViewController.swift */,
+				B38884622C3534860090EDF9 /* ExpansionViewController.swift */,
 				B3AA60F62C2E4BDA00CF208B /* Main.storyboard */,
 				B331956F2C35028A00075345 /* SectionHeader.xib */,
 				B36A957A2C2E96F700EF9C09 /* FooterTabView.xib */,
@@ -176,6 +179,7 @@
 				B3AA61052C2E4D4B00CF208B /* CollectionTopViewController.swift in Sources */,
 				B3AA60F32C2E4BDA00CF208B /* SceneDelegate.swift in Sources */,
 				B35B02D82C33E2F200C217E5 /* ShowPageViewController.swift in Sources */,
+				B38884632C3534860090EDF9 /* ExpansionViewController.swift in Sources */,
 				B3309FD72C323989009A02BB /* FooterTabView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
