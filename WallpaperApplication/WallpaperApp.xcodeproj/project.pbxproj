@@ -25,6 +25,7 @@
 		B3AA61052C2E4D4B00CF208B /* CollectionTopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3AA61042C2E4D4B00CF208B /* CollectionTopViewController.swift */; };
 		B3AA61072C2E543800CF208B /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3AA61062C2E543800CF208B /* File.swift */; };
 		B3AA61092C2E55CB00CF208B /* struct.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3AA61082C2E55CB00CF208B /* struct.swift */; };
+		B3C7D3352C378E2900453A2D /* WebKitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C7D3342C378E2900453A2D /* WebKitViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		B3AA61042C2E4D4B00CF208B /* CollectionTopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionTopViewController.swift; sourceTree = "<group>"; };
 		B3AA61062C2E543800CF208B /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		B3AA61082C2E55CB00CF208B /* struct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = struct.swift; sourceTree = "<group>"; };
+		B3C7D3342C378E2900453A2D /* WebKitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebKitViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 		B3AA60E42C2E4BDA00CF208B = {
 			isa = PBXGroup;
 			children = (
+				B3C7D3342C378E2900453A2D /* WebKitViewController.swift */,
 				B3AA60EF2C2E4BDA00CF208B /* WallpaperApp */,
 				B3AA60EE2C2E4BDA00CF208B /* Products */,
 			);
@@ -202,6 +205,7 @@
 				B3AA60F32C2E4BDA00CF208B /* SceneDelegate.swift in Sources */,
 				B35B02D82C33E2F200C217E5 /* ShowPageViewController.swift in Sources */,
 				B357DF952C365818007AF456 /* InfoViewController.swift in Sources */,
+				B3C7D3352C378E2900453A2D /* WebKitViewController.swift in Sources */,
 				B357DF932C365805007AF456 /* TagViewController.swift in Sources */,
 				B38884632C3534860090EDF9 /* ExpansionViewController.swift in Sources */,
 				B3309FD72C323989009A02BB /* FooterTabView.swift in Sources */,

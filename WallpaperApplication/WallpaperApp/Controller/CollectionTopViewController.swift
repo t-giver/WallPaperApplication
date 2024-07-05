@@ -25,10 +25,9 @@ class CollectionTopViewController: UIViewController, UICollectionViewDelegate, U
             UINib(nibName: "SectionHeader", bundle: nil),
             forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
             withReuseIdentifier: "SectionHeader")
+        
+    
     }
-    
-    
-    
     
     func imgNewList(){
         sendData.fetchImg { result in
@@ -48,7 +47,7 @@ class CollectionTopViewController: UIViewController, UICollectionViewDelegate, U
         return imgList.count // 画像リストの要素数を返す
     }
     
-   
+    
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? CollectionViewCell {
@@ -93,30 +92,32 @@ class CollectionTopViewController: UIViewController, UICollectionViewDelegate, U
            let indexPath =  collectionImg.indexPathsForSelectedItems?.first {
             showVC.selectImg = imgList
             showVC.indent = indexPath.item
+            
+        }
+        
+        
+    }
+}
+    
+    extension CollectionTopViewController: UICollectionViewDelegateFlowLayout {
+        func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+            if indexPath.item == 0 {
+                let collectionViewWidth = collectionView.bounds.width
+                let itemWidth = collectionViewWidth
+                return CGSize(width: itemWidth, height: itemWidth)
+            } else {
+                let collectionViewWidth = collectionView.bounds.width
+                let itemWidth = collectionViewWidth / 2
+                return CGSize(width: itemWidth, height: itemWidth)
+            }
+        }
+        
+        func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+            return 0
+        }
+        
+        func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+            return 0
         }
     }
-    
-    
-}
 
-extension CollectionTopViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        if indexPath.item == 0 {
-            let collectionViewWidth = collectionView.bounds.width
-            let itemWidth = collectionViewWidth
-            return CGSize(width: itemWidth, height: itemWidth)
-        } else {
-            let collectionViewWidth = collectionView.bounds.width
-            let itemWidth = collectionViewWidth / 2
-            return CGSize(width: itemWidth, height: itemWidth)
-        }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
-    }
-}

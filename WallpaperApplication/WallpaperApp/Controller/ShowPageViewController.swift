@@ -15,6 +15,7 @@ class ShowPageViewController: UIViewController {
     @IBOutlet weak var upDateLabel: UILabel!
     var selectImg:[NewImg] = []
     var indent:Int = 0
+    let webView = WebKitViewController()
     
     
     override func viewDidLoad() {
@@ -23,6 +24,10 @@ class ShowPageViewController: UIViewController {
         // 選択された画像の情報を取得する
         let selectedImg = selectImg[indent]
         
+        webView.view.translatesAutoresizingMaskIntoConstraints = false
+               addChild(webView)
+               view.addSubview(webView.view)
+               webView.didMove(toParent: self)
      
             
         
@@ -48,8 +53,9 @@ class ShowPageViewController: UIViewController {
                             self.upDateLabel.text = dateFormatter.string(from: date)
                         }
                         
-                        if let location = selectedImg.location {
-                            self.sourceLabel.text = location
+                        if let locationData = selectedImg.user.location {
+                            self.sourceLabel.text = locationData
+                           
                         } else {
                             self.sourceLabel.text = nil
                         }

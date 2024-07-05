@@ -25,7 +25,7 @@ struct NewImg: Codable {
     let user: User
     let urls: UrlsSize
     let links: Links
-    let location: String?
+    
 }
 
 
@@ -38,6 +38,7 @@ struct User: Codable {
 //    let lastName: String
 //    let profileImage: ProfileImage
     let links: UserLinks
+    let location: String?
 }
 
 struct UrlsSize: Codable {
