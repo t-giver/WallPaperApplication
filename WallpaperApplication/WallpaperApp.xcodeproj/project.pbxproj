@@ -81,6 +81,7 @@
 				B3AA61042C2E4D4B00CF208B /* CollectionTopViewController.swift */,
 				B35B02D72C33E2F200C217E5 /* ShowPageViewController.swift */,
 				B38884622C3534860090EDF9 /* ExpansionViewController.swift */,
+				B3C7D3342C378E2900453A2D /* WebKitViewController.swift */,
 				B37D5CA82C2E6C1800F179BF /* CollectionViewCell.swift */,
 				B357DF922C365805007AF456 /* TagViewController.swift */,
 				B357DF942C365818007AF456 /* InfoViewController.swift */,
@@ -91,7 +92,6 @@
 		B3AA60E42C2E4BDA00CF208B = {
 			isa = PBXGroup;
 			children = (
-				B3C7D3342C378E2900453A2D /* WebKitViewController.swift */,
 				B3AA60EF2C2E4BDA00CF208B /* WallpaperApp */,
 				B3AA60EE2C2E4BDA00CF208B /* Products */,
 			);

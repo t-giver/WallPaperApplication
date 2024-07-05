@@ -467,6 +467,9 @@
                             <constraint firstItem="vcS-2v-ZCe" firstAttribute="top" secondItem="Rce-x3-PcT" secondAttribute="top" id="dFO-UU-mUo"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="webView" destination="vcS-2v-ZCe" id="NYR-yB-fho"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="17B-X0-qgq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -11,6 +11,7 @@ import WebKit
 class WebKitViewController: UIViewController {
     
     var webView: WKWebView!
+    @IBOutlet weak var webKit: WKWebView!
     
     override func loadView() {
            let configuration = WKWebViewConfiguration()
@@ -23,6 +24,11 @@ class WebKitViewController: UIViewController {
                let url = URL(string: "https://google.com")!
                let request = URLRequest(url: url)
                webView.load(request)
+    }
+    
+    func loadWebPage(with url: URL) {
+        let request = URLRequest(url: url)
+        webView.load(request)
     }
     
 
