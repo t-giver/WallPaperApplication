@@ -23,12 +23,10 @@ class ShowPageViewController: UIViewController {
         setupSelectedImage(selectImg: self.selectImg)
         tapImg()
         
-        //        webView.view.translatesAutoresizingMaskIntoConstraints = false
-        //               addChild(webView)
-        //               view.addSubview(webView.view)
-        //               webView.didMove(toParent: self)
-        //
-        
+        webView.view.translatesAutoresizingMaskIntoConstraints = false
+           addChild(webView)
+           view.addSubview(webView.view)
+           webView.didMove(toParent: self)
     }
     
     
@@ -42,8 +40,19 @@ class ShowPageViewController: UIViewController {
                 if let data = try? Data(contentsOf: url), let image = UIImage(data: data) {
                     DispatchQueue.main.async {
                         self.showImg.image = image
-                        self.authorLabel.text = author
-            
+                        
+                        // リンク付きの author 表示
+                        let baseString = author
+                        if let htmlString = selectImg[self.indent].links.html, let url = URL(string: htmlString) {
+                            let attributedString = NSMutableAttributedString(string: baseString)
+                            attributedString.addAttribute(.link, value: url, range: NSString(string: baseString).range(of: baseString))
+                            self.authorLabel.attributedText = attributedString
+                            
+                            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.handleLinkTap(_:)))
+                            self.authorLabel.isUserInteractionEnabled = true
+                            self.authorLabel.addGestureRecognizer(tapGesture)
+                        }
+                        
                         // upDateLabel への表示
                         let dateFormatter = DateFormatter()
                         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
@@ -56,7 +65,6 @@ class ShowPageViewController: UIViewController {
                         
                         if let locationData = selectedImg.user.location {
                             self.sourceLabel.text = locationData
-                            
                         } else {
                             self.sourceLabel.text = nil
                         }
@@ -64,32 +72,25 @@ class ShowPageViewController: UIViewController {
                 }
             }
         }
-       
-    }
+    }   
     
-    @objc func authorLabelTapped(_ gesture: UITapGestureRecognizer) {
-        guard let urlString = selectImg[indent].links.html, let url = URL(string: urlString) else {
-            return
+    @objc func handleLinkTap(_ gesture: UITapGestureRecognizer) {
+        if let url = self.authorLabel.attributedText?.attribute(.link, at: 0, effectiveRange: nil) as? URL {
+            let webKitVC = WebKitViewController()
+            webKitVC.loadWebPage(with: url)
+            present(webKitVC, animated: true, completion: nil)
         }
-        
-        let webViewVC = WebKitViewController()
-        webViewVC.loadWebPage(with: url)
-        
-        // モーダルで表示する場合
-        present(webViewVC, animated: true, completion: nil)
     }
     
-    func tapImg(){
+    func tapImg() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(showImageTapped(_:)))
         showImg.addGestureRecognizer(tapGesture)
         showImg.isUserInteractionEnabled = true
     }
     
-    
     @objc func showImageTapped(_ gesture: UITapGestureRecognizer) {
         performSegue(withIdentifier: "expansion", sender: showImg)
     }
-    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "expansion",
