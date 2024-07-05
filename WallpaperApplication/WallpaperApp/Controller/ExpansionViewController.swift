@@ -16,9 +16,9 @@ class ExpansionViewController: UIViewController {
         super.viewDidLoad()
 
         // 1. tapImgeから最初の画像を取得
-        if let firstImg = tapImge.first, let url = firstImg.urls.regular {
+        if let firstImg = tapImge.first, let regularSize = firstImg.urls.regular {
             DispatchQueue.global().async {
-                if let data = try? Data(contentsOf: url), let image = UIImage(data: data) {
+                if let url = URL(string: regularSize), let data = try? Data(contentsOf: url), let image = UIImage(data: data) {
                     DispatchQueue.main.async {
                         self.tapimg.image = image
                     }

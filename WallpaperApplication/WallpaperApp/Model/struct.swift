@@ -42,7 +42,7 @@ struct User: Codable {
 
 struct UrlsSize: Codable {
     let full: String
-    let regular: URL?
+    let regular: String?
     
 }
 

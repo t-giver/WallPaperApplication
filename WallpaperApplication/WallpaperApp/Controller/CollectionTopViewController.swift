@@ -10,11 +10,11 @@ import UIKit
 class CollectionTopViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     let sendData = SendData()
     var imgList: [NewImg] = [] // 画像リストを配列として保持する
-
+    
     
     
     @IBOutlet weak var collectionImg: UICollectionView!
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,13 +22,13 @@ class CollectionTopViewController: UIViewController, UICollectionViewDelegate, U
         collectionImg.dataSource = self // dataSourceを設定する
         imgNewList()
         collectionImg.register(
-        UINib(nibName: "SectionHeader", bundle: nil),
-        forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
-        withReuseIdentifier: "SectionHeader")
+            UINib(nibName: "SectionHeader", bundle: nil),
+            forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+            withReuseIdentifier: "SectionHeader")
     }
     
     
-
+    
     
     func imgNewList(){
         sendData.fetchImg { result in
@@ -41,47 +41,50 @@ class CollectionTopViewController: UIViewController, UICollectionViewDelegate, U
         }
     }
     
-
-   
+    
+    
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return imgList.count // 画像リストの要素数を返す
     }
     
+   
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? CollectionViewCell {
-            let image = imgList[indexPath.item] // 表示する画像を取得する
-            if let url = URL(string: image.urls.full) {
-                URLSession.shared.dataTask(with: url) { data, _, _ in
-                    if let data = data, let image = UIImage(data: data) {
+            let image = imgList[indexPath.item]
+            // 画像の読み込みを一括で行う
+            DispatchQueue.global().async {
+                if let regular = image.urls.regular, let url = URL(string: regular) {
+                    if let data = try? Data(contentsOf: url), let cellImage = UIImage(data: data) {
                         DispatchQueue.main.async {
-                            cell.img.image = image
+                            cell.img.image = cellImage
                         }
                     }
-                }.resume()
+                }
             }
-            cell.img.image = UIImage(named: image.urls.full) // 画像を表示する
+            
             return cell
         }
         return UICollectionViewCell()
-        }
+    }
     
     
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-
-      // 1. ヘッダーセクションを作成
-      guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "SectionHeaderMain", for: indexPath) as? SectionHeader else {
-        fatalError("ヘッダーがありません")
-      }
-
-     // 2. ヘッダーセクションのラベルにテキストをセット
-     if kind == UICollectionView.elementKindSectionHeader {
-       header.titleLabel.text = "新着写真"
-       return header
-    }
-
-     return UICollectionReusableView()
+        
+        // 1. ヘッダーセクションを作成
+        guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "SectionHeaderMain", for: indexPath) as? SectionHeader else {
+            fatalError("ヘッダーがありません")
+        }
+        
+        // 2. ヘッダーセクションのラベルにテキストをセット
+        if kind == UICollectionView.elementKindSectionHeader {
+            header.titleLabel.text = "新着写真"
+            return header
+        }
+        
+        return UICollectionReusableView()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
