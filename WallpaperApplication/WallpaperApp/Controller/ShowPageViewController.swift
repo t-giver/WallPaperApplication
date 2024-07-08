@@ -22,11 +22,6 @@ class ShowPageViewController: UIViewController {
         super.viewDidLoad()
         setupSelectedImage(selectImg: self.selectImg)
         tapImg()
-        
-        webView.view.translatesAutoresizingMaskIntoConstraints = false
-           addChild(webView)
-           view.addSubview(webView.view)
-           webView.didMove(toParent: self)
     }
     
     
@@ -72,13 +67,12 @@ class ShowPageViewController: UIViewController {
                 }
             }
         }
-    }   
+    }
     
     @objc func handleLinkTap(_ gesture: UITapGestureRecognizer) {
+        // リンクがタップされた際の処理を実装
         if let url = self.authorLabel.attributedText?.attribute(.link, at: 0, effectiveRange: nil) as? URL {
-            let webKitVC = WebKitViewController()
-            webKitVC.loadWebPage(with: url)
-            present(webKitVC, animated: true, completion: nil)
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
         }
     }
     
