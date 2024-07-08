@@ -90,7 +90,6 @@ class ShowPageViewController: UIViewController {
         if segue.identifier == "expansion",
            let expansionVC = segue.destination as? ExpansionViewController,
            let tappedImageView = sender as? UIImageView {
-            expansionVC.tapImge = selectImg
             expansionVC.tappedImageView = tappedImageView
         }
     }
