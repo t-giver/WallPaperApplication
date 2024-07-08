@@ -13,27 +13,17 @@ class WebKitViewController: UIViewController {
     var webView: WKWebView!
     @IBOutlet weak var webKit: WKWebView!
     
-//    override func loadView() {
-//        let configuration = WKWebViewConfiguration()
-//        webView = WKWebView(frame: view.bounds, configuration: configuration)
-//        view = webView
-//    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print("foge")
         let configuration = WKWebViewConfiguration()
-           webView = WKWebView(frame: view.bounds, configuration: configuration)
-           view.addSubview(webView)
-               let url = URL(string: "https://google.com")!
-               let request = URLRequest(url: url)
-               webView.load(request)
+        webView = WKWebView(frame: view.bounds, configuration: configuration)
+        view.addSubview(webView)
     }
     
     func loadWebPage(with url: URL) {
         let request = URLRequest(url: url)
         webView.load(request)
     }
-    
-
 }
+
