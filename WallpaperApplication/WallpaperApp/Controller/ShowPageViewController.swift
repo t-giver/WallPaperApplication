@@ -35,17 +35,15 @@ class ShowPageViewController: UIViewController {
                 if let data = try? Data(contentsOf: url), let image = UIImage(data: data) {
                     DispatchQueue.main.async {
                         self.showImg.image = image
-                        
+        
                         // リンク付きの author 表示
-                        let baseString = author
-                        if let htmlString = selectImg[self.indent].links.html, let url = URL(string: htmlString) {
-                            let attributedString = NSMutableAttributedString(string: baseString)
-                            attributedString.addAttribute(.link, value: url, range: NSString(string: baseString).range(of: baseString))
+                        if let htmlString = selectImg[self.indent].links.html,
+                           let url = URL(string: htmlString) {
+                            let attributedString = NSMutableAttributedString(string: author)
+                            attributedString.addAttribute(.link, value: url, range: NSRange(location: 0, length: author.count))
                             self.authorLabel.attributedText = attributedString
-                            
-                            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.handleLinkTap(_:)))
                             self.authorLabel.isUserInteractionEnabled = true
-                            self.authorLabel.addGestureRecognizer(tapGesture)
+                            self.authorLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.handleLinkTap(_:))))
                         }
                         
                         // upDateLabel への表示
