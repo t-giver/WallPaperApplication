@@ -15,7 +15,6 @@ class WebKitViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("foge")
         let configuration = WKWebViewConfiguration()
         webView = WKWebView(frame: view.bounds, configuration: configuration)
         view.addSubview(webView)
