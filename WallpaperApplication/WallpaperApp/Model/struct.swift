@@ -67,3 +67,23 @@
         let likes: String
         let portfolio: String
     }
+
+
+struct TagImg: Codable {
+    let results: [Result]
+}
+
+struct Result: Codable {
+    let id: String
+    let urls: Urls
+    let color: String
+}
+
+struct Urls: Codable {
+    let regular: String
+}
+
+
+
+
+
