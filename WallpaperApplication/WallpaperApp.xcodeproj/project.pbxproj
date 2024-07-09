@@ -10,6 +10,7 @@
 		B3309FD72C323989009A02BB /* FooterTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3309FD62C323989009A02BB /* FooterTabView.swift */; };
 		B33195702C35028A00075345 /* SectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = B331956F2C35028A00075345 /* SectionHeader.xib */; };
 		B33195722C3504C200075345 /* SectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33195712C3504C200075345 /* SectionHeader.swift */; };
+		B355646F2C3CD33400FA0AAF /* TagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B355646E2C3CD33400FA0AAF /* TagCollectionViewCell.swift */; };
 		B357DF932C365805007AF456 /* TagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B357DF922C365805007AF456 /* TagViewController.swift */; };
 		B357DF952C365818007AF456 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B357DF942C365818007AF456 /* InfoViewController.swift */; };
 		B35B02D82C33E2F200C217E5 /* ShowPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35B02D72C33E2F200C217E5 /* ShowPageViewController.swift */; };
@@ -32,6 +33,7 @@
 		B3309FD62C323989009A02BB /* FooterTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterTabView.swift; sourceTree = "<group>"; };
 		B331956F2C35028A00075345 /* SectionHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionHeader.xib; sourceTree = "<group>"; };
 		B33195712C3504C200075345 /* SectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeader.swift; sourceTree = "<group>"; };
+		B355646E2C3CD33400FA0AAF /* TagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCollectionViewCell.swift; sourceTree = "<group>"; };
 		B357DF922C365805007AF456 /* TagViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagViewController.swift; sourceTree = "<group>"; };
 		B357DF942C365818007AF456 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		B35B02D72C33E2F200C217E5 /* ShowPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowPageViewController.swift; sourceTree = "<group>"; };
@@ -82,9 +84,10 @@
 				B35B02D72C33E2F200C217E5 /* ShowPageViewController.swift */,
 				B38884622C3534860090EDF9 /* ExpansionViewController.swift */,
 				B3C7D3342C378E2900453A2D /* WebKitViewController.swift */,
-				B37D5CA82C2E6C1800F179BF /* CollectionViewCell.swift */,
 				B357DF922C365805007AF456 /* TagViewController.swift */,
 				B357DF942C365818007AF456 /* InfoViewController.swift */,
+				B37D5CA82C2E6C1800F179BF /* CollectionViewCell.swift */,
+				B355646E2C3CD33400FA0AAF /* TagCollectionViewCell.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -207,6 +210,7 @@
 				B357DF952C365818007AF456 /* InfoViewController.swift in Sources */,
 				B3C7D3352C378E2900453A2D /* WebKitViewController.swift in Sources */,
 				B357DF932C365805007AF456 /* TagViewController.swift in Sources */,
+				B355646F2C3CD33400FA0AAF /* TagCollectionViewCell.swift in Sources */,
 				B38884632C3534860090EDF9 /* ExpansionViewController.swift in Sources */,
 				B3309FD72C323989009A02BB /* FooterTabView.swift in Sources */,
 			);

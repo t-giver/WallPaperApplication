@@ -91,15 +91,33 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="CmW-e8-MT3">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="tagCell" id="CmW-e8-MT3" customClass="TagCollectionViewCell" customModule="WallpaperApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="127.99999999999997" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="0AS-eN-G5t">
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="0AS-eN-G5t" customClass="tagi">
                                             <rect key="frame" x="0.0" y="0.0" width="127.99999999999997" height="128"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ArO-fa-6xw">
+                                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="ArO-fa-6xw" firstAttribute="leading" secondItem="0AS-eN-G5t" secondAttribute="leading" id="30M-ix-Hod"/>
+                                                <constraint firstItem="ArO-fa-6xw" firstAttribute="top" secondItem="0AS-eN-G5t" secondAttribute="top" id="VvW-hR-f6D"/>
+                                                <constraint firstAttribute="bottom" secondItem="ArO-fa-6xw" secondAttribute="bottom" id="fd7-wf-ixs"/>
+                                                <constraint firstAttribute="trailing" secondItem="ArO-fa-6xw" secondAttribute="trailing" id="yaG-HO-DEw"/>
+                                            </constraints>
                                         </collectionViewCellContentView>
+                                        <connections>
+                                            <outlet property="image" destination="ArO-fa-6xw" id="wtZ-AF-rP8"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="GVh-gZ-C95" id="pfX-OB-I8x"/>
+                                    <outlet property="delegate" destination="GVh-gZ-C95" id="cvj-P1-xlb"/>
+                                </connections>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="タグ検索" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hnF-bc-RcE">
                                 <rect key="frame" x="15" y="69" width="363" height="21"/>
@@ -123,6 +141,10 @@
                             <constraint firstItem="hnF-bc-RcE" firstAttribute="leading" secondItem="3gF-54-m31" secondAttribute="leading" constant="15" id="zhv-gp-aty"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tagImgs" destination="dxA-2Q-739" id="gk0-6S-Xom"/>
+                        <segue destination="QJf-uP-8bS" kind="show" identifier="tagShow" id="Tb4-Tx-WE4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xil-dh-Ssg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -522,6 +544,9 @@
             <point key="canvasLocation" x="1647" y="-45"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Tb4-Tx-WE4"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="logo" width="240" height="54"/>
         <systemColor name="labelColor">
