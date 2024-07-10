@@ -7,20 +7,15 @@
 
     import Foundation
 
+//**新着画像
     struct NewImg: Codable {
         let updated_at:String?
         let id: String
         let slug: String
-    //    let alternativeText: [String: String]
-    //    let createdAt: String
-    //    let updatedAt: String
         let width: Int
         let height: Int
         let color: String
-    //    let blurHash: String
-    //    let downloads: Int
         let likes: Int
-    //    let likedByUser: Bool
         let description: String?
         let user: User
         let urls: UrlsSize
@@ -34,9 +29,7 @@
         let id: String?
         let username: String?
         let name: String?
-    //    let firstName: String
-    //    let lastName: String
-    //    let profileImage: ProfileImage
+    
         let links: UserLinks
         let location: String?
     }
@@ -51,7 +44,6 @@
         let `self`: String
         let html: String?
         let download: String?
-    //    let downloadLocation: String
     }
 
     struct ProfileImage: Codable {
@@ -69,21 +61,24 @@
     }
 
 
+
+///** tag検索用
 struct TagImg: Codable {
     let results: [Result]
 }
 
 struct Result: Codable {
     let id: String
-    let urls: Urls
+    let created_at: String
+    let updated_at: String
+    let width: Int
+    let height: Int
     let color: String
+    let description: String?
+    let user: User
+    let links: Links
+    let urls:UrlsSize
 }
-
-struct Urls: Codable {
-    let regular: String
-}
-
-
 
 
 

@@ -39,9 +39,9 @@ class SendData {
 
 class TagData{
     var tagColor = "red"
-    func fetchTagImg(completion: @escaping ([TagImg]?) -> Void){
+    func fetchTagImg(completion: @escaping ([Result]?) -> Void){
         let tagUrlSting = "https://api.unsplash.com/search/photos/?query=\(tagColor)&per_page=5&color=\(tagColor)&client_id=J28noNyOy-HJj56bxWfO8dmlhDJZ_LXb2W6b8v5j0XE"
-       print(tagUrlSting)
+       
         guard let url = URL(string: tagUrlSting) else {
             completion(nil)
             
@@ -61,9 +61,9 @@ class TagData{
 
             do {
                 let decoder = JSONDecoder()
-                let tagResponse = try decoder.decode([TagImg].self, from: data)
-                completion(tagResponse)
-                print(tagResponse)// データの取得後にcompletionを呼び出す
+                let tagResponse = try decoder.decode(TagImg.self, from: data)
+                completion(tagResponse.results)
+              // データの取得後にcompletionを呼び出す
             } catch let error {
                 print("JSONデコードエラー: \(error)")
                 completion(nil)

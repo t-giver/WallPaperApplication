@@ -145,6 +145,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="redButton" destination="YkC-ps-KPY" id="bZO-HA-H9h"/>
                         <outlet property="tagImgs" destination="dxA-2Q-739" id="gk0-6S-Xom"/>
                         <segue destination="QJf-uP-8bS" kind="show" identifier="tagShow" id="Tb4-Tx-WE4"/>
                     </connections>

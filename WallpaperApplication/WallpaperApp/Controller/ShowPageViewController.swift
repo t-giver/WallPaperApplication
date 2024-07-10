@@ -13,6 +13,7 @@ class ShowPageViewController: UIViewController {
     @IBOutlet weak var authorLabel: UILabel!
     @IBOutlet weak var sourceLabel: UILabel!
     @IBOutlet weak var upDateLabel: UILabel!
+    
     var selectImg:[NewImg] = []
     var indent:Int = 0
     let webView = WebKitViewController()

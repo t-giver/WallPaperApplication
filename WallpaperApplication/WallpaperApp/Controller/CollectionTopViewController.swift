@@ -18,15 +18,14 @@ class CollectionTopViewController: UIViewController, UICollectionViewDelegate, U
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionImg.delegate = self // delegateを設定する
-        collectionImg.dataSource = self // dataSourceを設定する
+        collectionImg.delegate = self
+        collectionImg.dataSource = self
         imgNewList()
+        print(imgList)
         collectionImg.register(
             UINib(nibName: "SectionHeader", bundle: nil),
             forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
             withReuseIdentifier: "SectionHeader")
-        
-    
     }
     
     func imgNewList(){

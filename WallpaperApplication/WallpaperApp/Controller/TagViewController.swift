@@ -9,22 +9,16 @@ import UIKit
 
 class TagViewController: UIViewController,UICollectionViewDelegate, UICollectionViewDataSource {
     let tagData = TagData()
-    var tagList: [TagImg] = []
+    var tagList: [Result] = []
     
     
-    
+    @IBOutlet weak var redButton: UIButton!
     @IBOutlet weak var tagImgs: UICollectionView!
     
+    
+    
     @IBAction func red(_ sender: Any) {
-        //        for (index, image) in tagList.enumerated() {
-        //             if image.color == "red" {
-        //                 let filteredImage = self.applyRedFilter(to: image)
-        //                 tagList[index].image = filteredImage
-        //             }
-        //         }
-        //
-        //         // コレクションビューを再読み込みする
-        //         collectionView.reloadData()
+      
     }
     
     
@@ -33,11 +27,7 @@ class TagViewController: UIViewController,UICollectionViewDelegate, UICollection
         tagImgs.delegate = self
         tagImgs.dataSource = self
         imgTagList()
-        
-        
-        
-        
-        
+//        print(tagList)
     }
     
     func imgTagList(){
@@ -56,37 +46,20 @@ class TagViewController: UIViewController,UICollectionViewDelegate, UICollection
         
     }
     
-    func applyRedFilter(to image: UIImage) -> UIImage {
-        // 赤色のフィルターを適用する処理
-        // ...
-        return image
-    }
-    
+  
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "tagCell", for: indexPath) as? TagCollectionViewCell {
             let tagimage = tagList[indexPath.item]
             
-            
-            if let firstResult = tagimage.results.first, firstResult.color == "red"  {
-                DispatchQueue.global().async {
-                    if let imageURL = URL(string: firstResult.urls.regular ?? "https://via.placeholder.com/150"), let imageData = try? Data(contentsOf: imageURL), let cellImage = UIImage(data: imageData) {
-                        DispatchQueue.main.async {
-                            // 赤色のフィルターをかける処理
-                            cell.image.image = self.applyRedFilter(to: cellImage)
-                        }
-                    }
-                }
-            } else {
-                DispatchQueue.global().async {
-                    
-                    if let firstResult = tagimage.results.first, let imageURL = URL(string: firstResult.urls.regular ?? "https://via.placeholder.com/150"), let imageData = try? Data(contentsOf: imageURL), let cellImage = UIImage(data: imageData) {
+            DispatchQueue.global().async {
+                if let regular = tagimage.urls.regular, let url = URL(string: regular) {
+                    if let data = try? Data(contentsOf: url), let cellImage = UIImage(data: data) {
                         DispatchQueue.main.async {
                             cell.image.image = cellImage
                         }
                     }
                 }
             }
-            print(tagimage)
             return cell
         }
         return UICollectionViewCell()
