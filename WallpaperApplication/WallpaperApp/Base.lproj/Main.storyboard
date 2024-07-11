@@ -69,19 +69,67 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GUq-H4-ykT">
                                 <rect key="frame" x="15" y="102" width="363" height="47"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YkC-ps-KPY">
-                                        <rect key="frame" x="13" y="6" width="75" height="35"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YkC-ps-KPY">
+                                        <rect key="frame" x="0.0" y="6" width="57" height="35"/>
+                                        <color key="tintColor" systemColor="systemRedColor"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="RED"/>
                                         <connections>
                                             <action selector="red:" destination="GVh-gZ-C95" eventType="touchUpInside" id="Ord-WU-uma"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f68-ym-vlK">
+                                        <rect key="frame" x="65" y="6" width="66" height="35"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="BLUE"/>
+                                        <connections>
+                                            <action selector="blue:" destination="GVh-gZ-C95" eventType="touchUpInside" id="dkt-me-U53"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xhx-ob-q1x">
+                                        <rect key="frame" x="126" y="4" width="79" height="35"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="GREEN"/>
+                                        <connections>
+                                            <action selector="green:" destination="GVh-gZ-C95" eventType="touchUpInside" id="ssa-pT-g5Z"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XsB-wc-n12">
+                                        <rect key="frame" x="197" y="-10" width="91" height="35"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="YELLOW"/>
+                                        <connections>
+                                            <action selector="yellow:" destination="GVh-gZ-C95" eventType="touchUpInside" id="wwh-nV-YYS"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zoZ-Rd-rCq">
+                                        <rect key="frame" x="286" y="-10" width="77" height="35"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="WHITE"/>
+                                        <connections>
+                                            <action selector="white:" destination="GVh-gZ-C95" eventType="touchUpInside" id="xa4-Mg-R08"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AgC-f2-MZ4">
+                                        <rect key="frame" x="244" y="12" width="77" height="35"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="BLACK"/>
+                                        <connections>
+                                            <action selector="black:" destination="GVh-gZ-C95" eventType="touchUpInside" id="Etg-iL-o1O"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="YkC-ps-KPY" secondAttribute="bottom" constant="6" id="Gk5-my-IF5"/>
                                     <constraint firstAttribute="height" constant="47" id="PRY-JN-h5M"/>
+                                    <constraint firstItem="YkC-ps-KPY" firstAttribute="top" secondItem="GUq-H4-ykT" secondAttribute="top" constant="6" id="VQw-cH-VAw"/>
+                                    <constraint firstItem="YkC-ps-KPY" firstAttribute="leading" secondItem="GUq-H4-ykT" secondAttribute="leading" id="a7A-NJ-2Id"/>
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dxA-2Q-739">
@@ -145,9 +193,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="redButton" destination="YkC-ps-KPY" id="bZO-HA-H9h"/>
                         <outlet property="tagImgs" destination="dxA-2Q-739" id="gk0-6S-Xom"/>
-                        <segue destination="QJf-uP-8bS" kind="show" identifier="tagShow" id="Tb4-Tx-WE4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xil-dh-Ssg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -548,9 +594,6 @@
             <point key="canvasLocation" x="1647" y="-45"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="Tb4-Tx-WE4"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="logo" width="240" height="54"/>
         <systemColor name="labelColor">
@@ -561,6 +604,9 @@
         </systemColor>
         <systemColor name="systemGray2Color">
             <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

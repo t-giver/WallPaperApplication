@@ -38,10 +38,10 @@ class SendData {
 }
 
 class TagData{
-    var tagColor = "red"
-    func fetchTagImg(completion: @escaping ([Result]?) -> Void){
+    var tagColor = ""
+    func fetchTagImg(tagColor:String, completion: @escaping ([Result]?) -> Void){
         let tagUrlSting = "https://api.unsplash.com/search/photos/?query=\(tagColor)&per_page=5&color=\(tagColor)&client_id=J28noNyOy-HJj56bxWfO8dmlhDJZ_LXb2W6b8v5j0XE"
-       
+       print(tagUrlSting)
         guard let url = URL(string: tagUrlSting) else {
             completion(nil)
             

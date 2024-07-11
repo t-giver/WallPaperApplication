@@ -27,6 +27,7 @@
 		B3AA61072C2E543800CF208B /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3AA61062C2E543800CF208B /* File.swift */; };
 		B3AA61092C2E55CB00CF208B /* struct.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3AA61082C2E55CB00CF208B /* struct.swift */; };
 		B3C7D3352C378E2900453A2D /* WebKitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C7D3342C378E2900453A2D /* WebKitViewController.swift */; };
+		B3DD01DE2C3E6F720066BAD9 /* cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DD01DD2C3E6F720066BAD9 /* cell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		B3AA61062C2E543800CF208B /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		B3AA61082C2E55CB00CF208B /* struct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = struct.swift; sourceTree = "<group>"; };
 		B3C7D3342C378E2900453A2D /* WebKitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebKitViewController.swift; sourceTree = "<group>"; };
+		B3DD01DD2C3E6F720066BAD9 /* cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				B33195712C3504C200075345 /* SectionHeader.swift */,
 				B3AA61062C2E543800CF208B /* File.swift */,
 				B3AA61082C2E55CB00CF208B /* struct.swift */,
+				B3DD01DD2C3E6F720066BAD9 /* cell.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -203,6 +206,7 @@
 				B33195722C3504C200075345 /* SectionHeader.swift in Sources */,
 				B3AA60F52C2E4BDA00CF208B /* ViewController.swift in Sources */,
 				B37D5CA92C2E6C1800F179BF /* CollectionViewCell.swift in Sources */,
+				B3DD01DE2C3E6F720066BAD9 /* cell.swift in Sources */,
 				B3AA60F12C2E4BDA00CF208B /* AppDelegate.swift in Sources */,
 				B3AA61052C2E4D4B00CF208B /* CollectionTopViewController.swift in Sources */,
 				B3AA60F32C2E4BDA00CF208B /* SceneDelegate.swift in Sources */,
