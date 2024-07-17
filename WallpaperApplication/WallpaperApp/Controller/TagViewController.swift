@@ -31,38 +31,50 @@ class TagViewController: UIViewController,UICollectionViewDelegate, UICollection
         tagImgs.dataSource = self
         imgTagList(tagColor: "red")
         tagImgs.collectionViewLayout = flowLayout
+        
         buttons = [redButton, blueButton, whiteButton, yellowButton, greenButton, blackButton]
-        buttonColor()
-    }
-    
-    
-    func buttonColor(){
-        buttons = [redButton, blueButton, greenButton, yellowButton, whiteButton, blackButton]
         for button in buttons {
-            button.layer.cornerRadius = 10
-            button.backgroundColor = UIColor.white
-            button.tintColor = UIColor.black
-            button.layer.borderColor = UIColor.black.cgColor
-            button.layer.borderWidth = 1.0
+            button.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
         }
+        updateButtonAppearance(for: buttons, isSelected: redButton)
     }
     
-    func tup() {
-        for button in buttons {
-               button.tintColor = UIColor.white
-            button.backgroundColor = UIColor.black
-           }
-    }
+    @objc func buttonTapped(_ sender: UIButton) {
+            // 前回選択されていたボタンの外観を戻す
+            if let previousButton = selectedButton {
+                previousButton.tintColor = .black
+                previousButton.backgroundColor = .white
+            }
+            
+            // 新しく選択されたボタンの外観を変更
+            selectedButton = sender
+            sender.tintColor = .white
+            sender.backgroundColor = .black
+        }
+        
+        func updateButtonAppearance(for buttons: [UIButton], isSelected: UIButton?) {
+            for button in buttons {
+                let color = button == isSelected ? UIColor.black : UIColor.white
+                let tintColor = button == isSelected ? UIColor.white : UIColor.black
+                
+                button.backgroundColor = color
+                button.tintColor = tintColor
+                button.layer.borderColor = UIColor.black.cgColor
+                button.layer.borderWidth = 1.0
+                button.layer.cornerRadius = 5
+            }
+        }
+    
+  
     
     @IBAction func red(_ sender: Any) {
         imgTagList(tagColor: "red")
-        tup()
+        updateButtonAppearance(for: buttons, isSelected: redButton)
     }
     
     @IBAction func blue(_ sender: Any) {
         imgTagList(tagColor: "blue")
-       
-          
+        updateButtonAppearance(for: buttons, isSelected: blueButton)
     }
     
     @IBAction func green(_ sender: Any) {
