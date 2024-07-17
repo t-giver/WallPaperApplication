@@ -21,6 +21,7 @@
         let urls: UrlsSize
         let links: Links
         
+        
     }
 
 
@@ -64,21 +65,10 @@
 
 ///** tag検索用
 struct TagImg: Codable {
-    let results: [Result]
+    let results: [NewImg]
 }
 
-struct Result: Codable {
-    let id: String
-    let created_at: String
-    let updated_at: String
-    let width: Int
-    let height: Int
-    let color: String
-    let description: String?
-    let user: User
-    let links: Links
-    let urls:UrlsSize
-}
+
 
 
 

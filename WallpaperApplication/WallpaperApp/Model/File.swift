@@ -37,40 +37,38 @@ class SendData {
     }
 }
 
-class TagData{
+class TagData {
     var tagColor = ""
-    func fetchTagImg(tagColor:String, completion: @escaping ([Result]?) -> Void){
-        let tagUrlSting = "https://api.unsplash.com/search/photos/?query=\(tagColor)&per_page=5&color=\(tagColor)&client_id=J28noNyOy-HJj56bxWfO8dmlhDJZ_LXb2W6b8v5j0XE"
-       print(tagUrlSting)
-        guard let url = URL(string: tagUrlSting) else {
-            completion(nil)
-            
-            return
-       }
+    
+    func fetchTagImg(tagColor: String, completion: @escaping ([NewImg]?) -> Void) {
+        let tagUrlString = "https://api.unsplash.com/search/photos/?query=\(tagColor)&per_page=5&color=\(tagColor)&client_id=J28noNyOy-HJj56bxWfO8dmlhDJZ_LXb2W6b8v5j0XE"
+        print(tagUrlString)
         
-        URLSession.shared.dataTask(with: url) { data, tagResponse, error in
+        guard let url = URL(string: tagUrlString) else {
+            completion(nil)
+            return
+        }
+        
+        URLSession.shared.dataTask(with: url) { data, response, error in
             if let error = error {
                 completion(nil)
                 return
             }
-
+            
             guard let data = data else {
                 completion(nil)
                 return
             }
-
+            
             do {
                 let decoder = JSONDecoder()
                 let tagResponse = try decoder.decode(TagImg.self, from: data)
                 completion(tagResponse.results)
-              // データの取得後にcompletionを呼び出す
             } catch let error {
                 print("JSONデコードエラー: \(error)")
                 completion(nil)
             }
         }.resume()
     }
-    }
-    
-    
+}
 

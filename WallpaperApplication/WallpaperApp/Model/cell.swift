@@ -48,7 +48,7 @@ class Cell: UICollectionViewCell {
     }
     
     
-    func configure(with photo: Result) {
+    func configure(with photo: NewImg) {
         // 古いデータタスクをキャンセル
         dataTask?.cancel()
         

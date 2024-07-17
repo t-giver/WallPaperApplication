@@ -9,7 +9,7 @@ import UIKit
 
 class TagViewController: UIViewController,UICollectionViewDelegate, UICollectionViewDataSource {
     let tagData = TagData()
-    var tagList: [Result] = []
+    var tagList: [NewImg] = []
     //    var redSelct = true
     //    var blueSelect = false
     var buttons: [UIButton] = []
@@ -147,20 +147,16 @@ class TagViewController: UIViewController,UICollectionViewDelegate, UICollection
     
     
     
+        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            if segue.identifier == "tagShow",
+               let showVC = segue.destination as? ShowPageViewController,
+               let indexPath =  tagImgs.indexPathsForSelectedItems?.first {
+                      showVC.selectImg = tagList
+                      showVC.indent = indexPath.item
+                  }
+
+            }
     
-    
-    
-    
-//        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//            if segue.identifier == "tagShow",
-//               let showVC = segue.destination as? ShowPageViewController,
-//               let indexPath =  tagImgs.indexPathsForSelectedItems?.first {
-//                let newImgList = tagList.map { NewImg(result: $0) }
-//                      showVC.selectImg = newImgList
-//                      showVC.indent = indexPath.item
-//                  }
-//
-//            }
    }
     
 
