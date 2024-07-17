@@ -24,22 +24,19 @@ class TagViewController: UIViewController,UICollectionViewDelegate, UICollection
         tagImgs.delegate = self
         tagImgs.dataSource = self
         imgTagList(tagColor: "red")
-        //        print(tagList)
-        
-//        tagImgs.register(Cell.self, forCellWithReuseIdentifier: "tagCell")
-        
+        tagImgs.collectionViewLayout = flowLayout
         
     }
     
     @IBAction func red(_ sender: Any) {
         imgTagList(tagColor: "red")
-        self.tagImgs.reloadData()
+        
         
     }
     
     @IBAction func blue(_ sender: Any) {
         imgTagList(tagColor: "blue")
-        self.tagImgs.reloadData()
+        
     }
     
     @IBAction func green(_ sender: Any) {
@@ -61,10 +58,11 @@ class TagViewController: UIViewController,UICollectionViewDelegate, UICollection
     
     func imgTagList(tagColor color:String){
         tagData.fetchTagImg(tagColor:color){ result in
-            DispatchQueue.main.async { // メインスレッドで更新する
-                if let images = result {
-                    self.tagList = images // 画像リストを保持する
-                    self.tagImgs.reloadData() // コレクションビューを再読み込みする
+            if let images = result {
+                self.tagList = images
+                DispatchQueue.main.async {
+                    self.tagImgs.reloadData()
+                    self.tagImgs.collectionViewLayout.invalidateLayout()
                 }
             }
         }
@@ -76,21 +74,36 @@ class TagViewController: UIViewController,UICollectionViewDelegate, UICollection
     }
     
     
+    private lazy var flowLayout: UICollectionViewFlowLayout = {
+        let layout = UICollectionViewFlowLayout()
+        layout.itemSize = CGSize(width: (view.bounds.width - 30) / 2, height: (view.bounds.width - 30) / 2)
+        layout.minimumInteritemSpacing = 10
+        layout.minimumLineSpacing = 10
+        layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        return layout
+    }()
+    
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "tagCell", for: indexPath) as? TagCollectionViewCell {
-            let tagimage = tagList[indexPath.item]
-            DispatchQueue.global().async {
-                if let regular = tagimage.urls.regular, let url = URL(string: regular) {
-                    if let data = try? Data(contentsOf: url), let cellImage = UIImage(data: data) {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "tagCell", for: indexPath) as? TagCollectionViewCell else {
+            return UICollectionViewCell()
+        }
+        
+        let tagimage = tagList[indexPath.item]
+        
+        DispatchQueue.global().async {
+            if let regular = tagimage.urls.regular, let url = URL(string: regular) {
+                URLSession.shared.dataTask(with: url) { (data, _, error) in
+                    if let data = data, let cellImage = UIImage(data: data) {
                         DispatchQueue.main.async {
                             cell.image.image = cellImage
                         }
                     }
-                }
+                }.resume()
             }
-            return cell
         }
-        return UICollectionViewCell()
+        
+        return cell
     }
 }
 
@@ -110,15 +123,21 @@ class TagViewController: UIViewController,UICollectionViewDelegate, UICollection
 extension TagViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let collectionViewWidth = collectionView.bounds.width
-        let itemWidth = (collectionViewWidth - 20) / 2 // セルの幅を少し小さくする
-        return CGSize(width: itemWidth, height: itemWidth)
+        if indexPath.item == 0 {
+            // 1つ目のセルは画面いっぱいの正方形
+            return CGSize(width: collectionViewWidth, height: collectionViewWidth)
+        } else {
+            // 2つ目以降のセルは画面の半分の正方形
+            let itemWidth = (collectionViewWidth - 30) / 2
+            return CGSize(width: itemWidth, height: itemWidth)
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 10 // セルの間隔を少し空ける
+        return 10
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 10 // セルの行間を少し空ける
+    private func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGSize {
+        return CGSize(width: 10, height: 10)
     }
 }
