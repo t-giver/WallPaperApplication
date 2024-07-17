@@ -12,12 +12,18 @@ class TagViewController: UIViewController,UICollectionViewDelegate, UICollection
     var tagList: [Result] = []
     //    var redSelct = true
     //    var blueSelect = false
-    //    var buttons: [UIButton] = []
+    var buttons: [UIButton] = []
+    var selectedButton: UIButton?
     
     
-    @IBOutlet weak var redButton: UIButton!
     @IBOutlet weak var tagImgs: UICollectionView!
+    @IBOutlet weak var redButton: UIButton!
     @IBOutlet weak var blueButton: UIButton!
+    @IBOutlet weak var whiteButton: UIButton!
+    @IBOutlet weak var yellowButton: UIButton!
+    @IBOutlet weak var greenButton: UIButton!
+    @IBOutlet weak var blackButton: UIButton!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,18 +31,38 @@ class TagViewController: UIViewController,UICollectionViewDelegate, UICollection
         tagImgs.dataSource = self
         imgTagList(tagColor: "red")
         tagImgs.collectionViewLayout = flowLayout
-        
+        buttons = [redButton, blueButton, whiteButton, yellowButton, greenButton, blackButton]
+        buttonColor()
+    }
+    
+    
+    func buttonColor(){
+        buttons = [redButton, blueButton, greenButton, yellowButton, whiteButton, blackButton]
+        for button in buttons {
+            button.layer.cornerRadius = 10
+            button.backgroundColor = UIColor.white
+            button.tintColor = UIColor.black
+            button.layer.borderColor = UIColor.black.cgColor
+            button.layer.borderWidth = 1.0
+        }
+    }
+    
+    func tup() {
+        for button in buttons {
+               button.tintColor = UIColor.white
+            button.backgroundColor = UIColor.black
+           }
     }
     
     @IBAction func red(_ sender: Any) {
         imgTagList(tagColor: "red")
-        
-        
+        tup()
     }
     
     @IBAction func blue(_ sender: Any) {
         imgTagList(tagColor: "blue")
-        
+       
+          
     }
     
     @IBAction func green(_ sender: Any) {
@@ -105,20 +131,25 @@ class TagViewController: UIViewController,UICollectionViewDelegate, UICollection
         
         return cell
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    //        if segue.identifier == "tagShow",
+    //           let showVC = segue.destination as? ShowPageViewController,
+    //           let indexPath =  tagImgs.indexPathsForSelectedItems?.first {
+    //            showVC.selectImg = tagList
+    //            showVC.indent = indexPath.item
+    //
+    //        }
+    //    }
+    
 }
-
-
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "tagShow",
-//           let showVC = segue.destination as? ShowPageViewController,
-//           let indexPath =  tagImgs.indexPathsForSelectedItems?.first {
-//            showVC.selectImg = tagList
-//            showVC.indent = indexPath.item
-//            
-//        }
-//    }
-
-
 
 extension TagViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -141,3 +172,6 @@ extension TagViewController: UICollectionViewDelegateFlowLayout {
         return CGSize(width: 10, height: 10)
     }
 }
+
+
+
