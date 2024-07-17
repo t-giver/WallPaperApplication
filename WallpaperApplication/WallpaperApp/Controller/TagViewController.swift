@@ -40,32 +40,32 @@ class TagViewController: UIViewController,UICollectionViewDelegate, UICollection
     }
     
     @objc func buttonTapped(_ sender: UIButton) {
-            // 前回選択されていたボタンの外観を戻す
-            if let previousButton = selectedButton {
-                previousButton.tintColor = .black
-                previousButton.backgroundColor = .white
-            }
-            
-            // 新しく選択されたボタンの外観を変更
-            selectedButton = sender
-            sender.tintColor = .white
-            sender.backgroundColor = .black
+        // 前回選択されていたボタンの外観を戻す
+        if let previousButton = selectedButton {
+            previousButton.tintColor = .black
+            previousButton.backgroundColor = .white
         }
         
-        func updateButtonAppearance(for buttons: [UIButton], isSelected: UIButton?) {
-            for button in buttons {
-                let color = button == isSelected ? UIColor.black : UIColor.white
-                let tintColor = button == isSelected ? UIColor.white : UIColor.black
-                
-                button.backgroundColor = color
-                button.tintColor = tintColor
-                button.layer.borderColor = UIColor.black.cgColor
-                button.layer.borderWidth = 1.0
-                button.layer.cornerRadius = 5
-            }
-        }
+        // 新しく選択されたボタンの外観を変更
+        selectedButton = sender
+        sender.tintColor = .white
+        sender.backgroundColor = .black
+    }
     
-  
+    func updateButtonAppearance(for buttons: [UIButton], isSelected: UIButton?) {
+        for button in buttons {
+            let color = button == isSelected ? UIColor.black : UIColor.white
+            let tintColor = button == isSelected ? UIColor.white : UIColor.black
+            
+            button.backgroundColor = color
+            button.tintColor = tintColor
+            button.layer.borderColor = UIColor.black.cgColor
+            button.layer.borderWidth = 1.0
+            button.layer.cornerRadius = 5
+        }
+    }
+    
+    
     
     @IBAction func red(_ sender: Any) {
         imgTagList(tagColor: "red")
@@ -151,17 +151,19 @@ class TagViewController: UIViewController,UICollectionViewDelegate, UICollection
     
     
     
-    //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    //        if segue.identifier == "tagShow",
-    //           let showVC = segue.destination as? ShowPageViewController,
-    //           let indexPath =  tagImgs.indexPathsForSelectedItems?.first {
-    //            showVC.selectImg = tagList
-    //            showVC.indent = indexPath.item
-    //
-    //        }
-    //    }
+//        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//            if segue.identifier == "tagShow",
+//               let showVC = segue.destination as? ShowPageViewController,
+//               let indexPath =  tagImgs.indexPathsForSelectedItems?.first {
+//                let newImgList = tagList.map { NewImg(result: $0) }
+//                      showVC.selectImg = newImgList
+//                      showVC.indent = indexPath.item
+//                  }
+//
+//            }
+   }
     
-}
+
 
 extension TagViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

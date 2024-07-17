@@ -194,6 +194,7 @@
                                         </collectionViewCellContentView>
                                         <connections>
                                             <outlet property="image" destination="ArO-fa-6xw" id="wtZ-AF-rP8"/>
+                                            <segue destination="QJf-uP-8bS" kind="show" identifier="tagShow" id="9M6-0Y-2o8"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -623,6 +624,9 @@
             <point key="canvasLocation" x="1647" y="-45"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="9M6-0Y-2o8"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="logo" width="240" height="54"/>
         <systemColor name="labelColor">
