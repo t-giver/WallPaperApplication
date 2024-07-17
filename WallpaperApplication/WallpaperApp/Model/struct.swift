@@ -20,10 +20,12 @@
         let user: User
         let urls: UrlsSize
         let links: Links
-        
-        
+        let alternative_slugs: AlternativeSlug
     }
 
+struct AlternativeSlug: Codable{
+    let ja:String?
+}
 
 
     struct User: Codable {

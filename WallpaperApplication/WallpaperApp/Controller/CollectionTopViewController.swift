@@ -21,7 +21,6 @@ class CollectionTopViewController: UIViewController, UICollectionViewDelegate, U
         collectionImg.delegate = self
         collectionImg.dataSource = self
         imgNewList()
-        print(imgList)
         collectionImg.register(
             UINib(nibName: "SectionHeader", bundle: nil),
             forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
