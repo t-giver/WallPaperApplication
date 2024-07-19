@@ -18,11 +18,27 @@ class ShowPageViewController: UIViewController {
     var indent:Int = 0
     let webView = WebKitViewController()
     
+   
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupSelectedImage(selectImg: self.selectImg)
         tapImg()
+        didTapImage(at: indent)
+        
+    }
+    
+    func didTapImage(at index: Int) {
+        indent = index
+        updateTitle()
+    }
+
+    func updateTitle() {
+        if let jaSlug = selectImg[indent].alternative_slugs.ja {
+            self.title = jaSlug.components(separatedBy: "-").first ?? jaSlug
+              
+        }
     }
     
     

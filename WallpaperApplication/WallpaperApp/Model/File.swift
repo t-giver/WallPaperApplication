@@ -42,7 +42,6 @@ class TagData {
     
     func fetchTagImg(tagColor: String, completion: @escaping ([NewImg]?) -> Void) {
         let tagUrlString = "https://api.unsplash.com/search/photos/?query=\(tagColor)&per_page=5&color=\(tagColor)&client_id=J28noNyOy-HJj56bxWfO8dmlhDJZ_LXb2W6b8v5j0XE"
-        print(tagUrlString)
         
         guard let url = URL(string: tagUrlString) else {
             completion(nil)
