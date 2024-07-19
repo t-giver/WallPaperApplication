@@ -176,7 +176,6 @@
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="H1i-pP-2VE" secondAttribute="bottom" id="JD6-hx-Fox"/>
                 <constraint firstItem="H1i-pP-2VE" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="TXS-70-Juy"/>
@@ -184,7 +183,7 @@
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="H1i-pP-2VE" secondAttribute="trailing" id="ids-dE-PYz"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="110.68702290076335" y="19.718309859154932"/>
+            <point key="canvasLocation" x="123" y="-5"/>
         </view>
     </objects>
     <resources>

@@ -35,8 +35,9 @@ class ShowPageViewController: UIViewController {
     }
 
     func updateTitle() {
-        if let alternativeSlug = selectImg[indent].alternative_slugs.ja {
-            self.title = alternativeSlug
+        if let jaSlug = selectImg[indent].alternative_slugs.ja {
+            self.title = jaSlug.components(separatedBy: "-").first ?? jaSlug
+              
         }
     }
     

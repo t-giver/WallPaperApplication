@@ -42,24 +42,31 @@ class FooterTabView: UIView {
         load()
         setup()
     }
-    
-    required init?(coder aDecoder : NSCoder) {
-        super.init(coder: aDecoder)!
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
         load()
         setup()
     }
     
     
     //影を背景につけて丸みをつけるコード
-        func setup(){
-            shadowView.layer.shadowColor = UIColor.systemGray.cgColor
-            shadowView.layer.shadowOffset = CGSize(width: 0, height: 2)
-            shadowView.layer.shadowRadius = 4.0
-            shadowView.layer.shadowOpacity = 0.5
-            shadowView.layer.cornerRadius = 25.0
-            shadowView.layer.masksToBounds = false
-            shadowView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
-        }
+    func setup() {
+
+//        // 角丸の設定
+        contentView.layer.cornerRadius = 20.0
+        contentView.layer.masksToBounds = true
+//        // 影の設定
+        shadowView.layer.shadowColor = UIColor.black.cgColor
+        shadowView.layer.shadowOffset = CGSize(width: 0, height: 2)
+        shadowView.layer.shadowRadius = 4.0
+        shadowView.layer.shadowOpacity = 0.5
+        shadowView.layer.cornerRadius = 20.0
+        shadowView.layer.masksToBounds = false
+
+        
+    }
+
 
     
     

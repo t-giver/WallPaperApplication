@@ -18,7 +18,6 @@ class ExpansionViewController: UIViewController {
        
         if let tappedView = tappedImageView {
             self.tapimg.image = tappedView.image
-            print(tapimg)
         }
     }
 }

@@ -39,7 +39,14 @@ class CollectionTopViewController: UIViewController, UICollectionViewDelegate, U
     }
     
     
-    
+    private lazy var flowLayout: UICollectionViewFlowLayout = {
+        let layout = UICollectionViewFlowLayout()
+        layout.itemSize = CGSize(width: (view.bounds.width - 30) / 2, height: (view.bounds.width - 30) / 2)
+        layout.minimumInteritemSpacing = 10
+        layout.minimumLineSpacing = 10
+        layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        return layout
+    }()
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return imgList.count // 画像リストの要素数を返す
@@ -97,25 +104,37 @@ class CollectionTopViewController: UIViewController, UICollectionViewDelegate, U
     }
 }
     
-    extension CollectionTopViewController: UICollectionViewDelegateFlowLayout {
-        func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-            if indexPath.item == 0 {
-                let collectionViewWidth = collectionView.bounds.width
-                let itemWidth = collectionViewWidth
-                return CGSize(width: itemWidth, height: itemWidth)
-            } else {
-                let collectionViewWidth = collectionView.bounds.width
-                let itemWidth = collectionViewWidth / 2
-                return CGSize(width: itemWidth, height: itemWidth)
-            }
+extension CollectionTopViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let collectionViewWidth = collectionView.bounds.width
+        let itemWidth: CGFloat
+        let itemHeight: CGFloat
+        
+        let sectionInset: CGFloat = 10 // コレクションビューの左右の余白
+        
+        let itemSpacing: CGFloat = 10 // アイテム間の水平方向の余白
+        let columnCount: CGFloat = 2 // 列数
+        
+        if indexPath.item == 0 {
+            itemWidth = collectionViewWidth - (sectionInset * 2)
+            itemHeight = itemWidth
+        } else {
+            itemWidth = (collectionViewWidth - (sectionInset * 2) - (itemSpacing * (columnCount - 1))) / columnCount
+            itemHeight = itemWidth
         }
         
-        func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-            return 0
-        }
-        
-        func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-            return 0
-        }
+        return CGSize(width: itemWidth, height: itemHeight)
     }
-
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 10
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 10
+    }
+}

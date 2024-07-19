@@ -79,19 +79,23 @@ class TagViewController: UIViewController,UICollectionViewDelegate, UICollection
     
     @IBAction func green(_ sender: Any) {
         imgTagList(tagColor: "green")
+        updateButtonAppearance(for: buttons, isSelected: greenButton)
     }
     
     @IBAction func yellow(_ sender: Any) {
         imgTagList(tagColor: "yellow")
+        updateButtonAppearance(for: buttons, isSelected: yellowButton)
     }
     
     @IBAction func white(_ sender: Any) {
         imgTagList(tagColor: "white")
+        updateButtonAppearance(for: buttons, isSelected: whiteButton)
     }
     
     
     @IBAction func black(_ sender: Any) {
         imgTagList(tagColor: "black")
+        updateButtonAppearance(for: buttons, isSelected: blackButton)
     }
     
     func imgTagList(tagColor color:String){
@@ -164,24 +168,30 @@ class TagViewController: UIViewController,UICollectionViewDelegate, UICollection
 extension TagViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let collectionViewWidth = collectionView.bounds.width
+        let sectionInset: CGFloat = 10
+        
         if indexPath.item == 0 {
-            // 1つ目のセルは画面いっぱいの正方形
-            return CGSize(width: collectionViewWidth, height: collectionViewWidth)
+            return CGSize(width: collectionViewWidth - (sectionInset * 2), height: collectionViewWidth - (sectionInset))
         } else {
-            // 2つ目以降のセルは画面の半分の正方形
-            let itemWidth = (collectionViewWidth - 30) / 2
+            let itemWidth = (collectionViewWidth - (sectionInset * 3)) / 2
             return CGSize(width: itemWidth, height: itemWidth)
         }
     }
-    
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+    }
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 10
     }
-    
-    private func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGSize {
-        return CGSize(width: 10, height: 10)
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 10
     }
 }
+
+
 
 
 

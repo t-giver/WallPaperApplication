@@ -10,6 +10,7 @@ import UIKit
 class ViewController: UIViewController, FooterTabViewDelegate {
  
 
+    
 
     @IBOutlet weak var footerTabView: FooterTabView!
     {
@@ -18,11 +19,17 @@ class ViewController: UIViewController, FooterTabViewDelegate {
         }
     }
     
+    
+    
+    
+    
     var selectedTab: FooterTab = .home
     
     override func viewDidLoad() {
         super.viewDidLoad()
         switchViewController(selectTab: .home)
+//        footerTabView.backgroundColor = UIColor.black
+
     }
     
     func footerTabView(_ footerTabView: FooterTabView, didselectTab: FooterTab) {
