@@ -28,7 +28,18 @@ class ViewController: UIViewController, FooterTabViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         switchViewController(selectTab: .home)
-//        footerTabView.backgroundColor = UIColor.black
+        let splashImage = UIImage(named: "splash")
+        let splashImageView = UIImageView(image: splashImage)
+        self.view.addSubview(splashImageView)
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+//            splashImageView.removeFromSuperview()}
+        
+        UIView.animate(withDuration: 3.0, animations: {
+            splashImageView.alpha = 0
+        }) { (completed) in
+            splashImageView.removeFromSuperview()
+        }
+        
 
     }
     

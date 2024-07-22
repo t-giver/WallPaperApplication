@@ -598,6 +598,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="TdZ-Sd-uLN"/>
                     <connections>
+                        <outlet property="scroll" destination="w6o-ds-rLo" id="bzL-bt-YpJ"/>
                         <outlet property="tapimg" destination="tiA-DC-LAB" id="W1v-eJ-096"/>
                     </connections>
                 </viewController>

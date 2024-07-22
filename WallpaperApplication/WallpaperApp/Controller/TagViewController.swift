@@ -29,7 +29,7 @@ class TagViewController: UIViewController,UICollectionViewDelegate, UICollection
         super.viewDidLoad()
         tagImgs.delegate = self
         tagImgs.dataSource = self
-        imgTagList(tagColor: "red")
+            imgTagList(tagColor: "red")
         tagImgs.collectionViewLayout = flowLayout
         
         buttons = [redButton, blueButton, whiteButton, yellowButton, greenButton, blackButton]
