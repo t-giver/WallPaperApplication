@@ -122,7 +122,7 @@
                                             <fontDescription key="titleFontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="15"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <action selector="white:" destination="GVh-gZ-C95" eventType="touchUpInside" id="xa4-Mg-R08"/>
+                                            <action selector="green:" destination="GVh-gZ-C95" eventType="touchUpInside" id="OnW-mf-K6i"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AgC-f2-MZ4">
@@ -156,7 +156,7 @@
                                             <fontDescription key="titleFontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="15"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <action selector="green:" destination="GVh-gZ-C95" eventType="touchUpInside" id="ssa-pT-g5Z"/>
+                                            <action selector="white:" destination="GVh-gZ-C95" eventType="touchUpInside" id="9He-LG-asH"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -235,10 +235,10 @@
                     <connections>
                         <outlet property="blackButton" destination="AgC-f2-MZ4" id="pIw-ke-ZGY"/>
                         <outlet property="blueButton" destination="f68-ym-vlK" id="sJj-OL-dUb"/>
-                        <outlet property="greenButton" destination="xhx-ob-q1x" id="hmg-QL-2tM"/>
+                        <outlet property="greenButton" destination="zoZ-Rd-rCq" id="KXg-lT-dRa"/>
                         <outlet property="redButton" destination="YkC-ps-KPY" id="upd-vm-nHd"/>
                         <outlet property="tagImgs" destination="dxA-2Q-739" id="gk0-6S-Xom"/>
-                        <outlet property="whiteButton" destination="zoZ-Rd-rCq" id="uPn-AG-GTx"/>
+                        <outlet property="whiteButton" destination="xhx-ob-q1x" id="7e8-7G-KYv"/>
                         <outlet property="yellowButton" destination="XsB-wc-n12" id="o2n-Ke-F5B"/>
                     </connections>
                 </viewController>

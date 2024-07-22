@@ -32,7 +32,7 @@ class TagViewController: UIViewController,UICollectionViewDelegate, UICollection
             imgTagList(tagColor: "red")
         tagImgs.collectionViewLayout = flowLayout
         
-        buttons = [redButton, blueButton, whiteButton, yellowButton, greenButton, blackButton]
+        buttons = [redButton, blueButton, greenButton, yellowButton, whiteButton, blackButton]
         for button in buttons {
             button.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
         }
