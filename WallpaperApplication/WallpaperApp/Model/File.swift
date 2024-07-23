@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+///**新着画像**
 class SendData {
     func fetchImg(completion: @escaping ([NewImg]?) -> Void) {
         let urlString = "https://api.unsplash.com/photos/?per_page=5&order_by=latest&client_id=J28noNyOy-HJj56bxWfO8dmlhDJZ_LXb2W6b8v5j0XE"
@@ -19,12 +19,12 @@ class SendData {
                 completion(nil)
                 return
             }
-
+            
             guard let data = data else {
                 completion(nil)
                 return
             }
-
+            
             do {
                 let decoder = JSONDecoder()
                 let response = try decoder.decode([NewImg].self, from: data)
@@ -36,7 +36,7 @@ class SendData {
         }.resume()
     }
 }
-
+///**ソートページ**
 class TagData {
     var tagColor = ""
     

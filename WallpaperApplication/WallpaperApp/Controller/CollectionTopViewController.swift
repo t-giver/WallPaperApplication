@@ -11,10 +11,7 @@ class CollectionTopViewController: UIViewController, UICollectionViewDelegate, U
     let sendData = SendData()
     var imgList: [NewImg] = [] // 画像リストを配列として保持する
     
-    
-    
     @IBOutlet weak var collectionImg: UICollectionView!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,7 +54,6 @@ class CollectionTopViewController: UIViewController, UICollectionViewDelegate, U
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? CollectionViewCell {
             let image = imgList[indexPath.item]
-            // 画像の読み込みを一括で行う
             DispatchQueue.global().async {
                 if let regular = image.urls.regular, let url = URL(string: regular) {
                     if let data = try? Data(contentsOf: url), let cellImage = UIImage(data: data) {
@@ -103,7 +99,7 @@ class CollectionTopViewController: UIViewController, UICollectionViewDelegate, U
         
     }
 }
-    
+
 extension CollectionTopViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let collectionViewWidth = collectionView.bounds.width

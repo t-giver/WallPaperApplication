@@ -53,7 +53,7 @@ class Cell: UICollectionViewCell {
         dataTask?.cancel()
         
         guard let regularUrl = photo.urls.regular,
-        let url = URL(string: regularUrl)
+              let url = URL(string: regularUrl)
         else {
             return
         }

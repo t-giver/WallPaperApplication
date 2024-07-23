@@ -53,10 +53,10 @@ class FooterTabView: UIView {
     //影を背景につけて丸みをつけるコード
     func setup() {
 
-//        // 角丸の設定
+        ///**角丸の設定
         contentView.layer.cornerRadius = 20.0
         contentView.layer.masksToBounds = true
-//        // 影の設定
+        ///**影の設定
         shadowView.layer.shadowColor = UIColor.black.cgColor
         shadowView.layer.shadowOffset = CGSize(width: 0, height: 2)
         shadowView.layer.shadowRadius = 4.0
@@ -66,10 +66,6 @@ class FooterTabView: UIView {
 
         
     }
-
-
-    
-    
     
     func load(){
         if let view = Bundle(for: type(of: self)).loadNibNamed(String(describing: type(of: self)), owner: self, options: nil)?.first as? UIView{

@@ -10,8 +10,6 @@ import UIKit
 class TagViewController: UIViewController,UICollectionViewDelegate, UICollectionViewDataSource {
     let tagData = TagData()
     var tagList: [NewImg] = []
-    //    var redSelct = true
-    //    var blueSelect = false
     var buttons: [UIButton] = []
     var selectedButton: UIButton?
     
@@ -29,7 +27,7 @@ class TagViewController: UIViewController,UICollectionViewDelegate, UICollection
         super.viewDidLoad()
         tagImgs.delegate = self
         tagImgs.dataSource = self
-            imgTagList(tagColor: "red")
+        imgTagList(tagColor: "red")
         tagImgs.collectionViewLayout = flowLayout
         
         buttons = [redButton, blueButton, greenButton, yellowButton, whiteButton, blackButton]
@@ -149,21 +147,17 @@ class TagViewController: UIViewController,UICollectionViewDelegate, UICollection
     }
     
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "tagShow",
+           let showVC = segue.destination as? ShowPageViewController,
+           let indexPath =  tagImgs.indexPathsForSelectedItems?.first {
+            showVC.selectImg = tagList
+            showVC.indent = indexPath.item
+        }
+        
+    }
     
-    
-        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-            if segue.identifier == "tagShow",
-               let showVC = segue.destination as? ShowPageViewController,
-               let indexPath =  tagImgs.indexPathsForSelectedItems?.first {
-                      showVC.selectImg = tagList
-                      showVC.indent = indexPath.item
-                  }
-
-            }
-    
-   }
-    
-
+}
 
 extension TagViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -177,15 +171,15 @@ extension TagViewController: UICollectionViewDelegateFlowLayout {
             return CGSize(width: itemWidth, height: itemWidth)
         }
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 10
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 10
     }

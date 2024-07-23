@@ -9,13 +9,10 @@ import UIKit
 
 class InfoViewController: UIViewController {
     let cellTag = Cell()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
-    }
-    
-
-  
+    }  
 }

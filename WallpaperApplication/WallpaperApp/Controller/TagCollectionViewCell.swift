@@ -8,6 +8,5 @@
 import UIKit
 
 class TagCollectionViewCell: UICollectionViewCell {
-    
-    @IBOutlet weak var image: UIImageView!
+     @IBOutlet weak var image: UIImageView!
 }
